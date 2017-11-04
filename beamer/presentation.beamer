@@ -1,0 +1,37 @@
+---
+title: Introduction à Spring et Hibernate
+subtitle: Institut Galilée - Master 2 EDI² et PLS
+author: Jones Magloire
+date: 27 Novembre 2017
+theme: material
+toc: true
+header-includes:
+  - \newcommand{\hideFromPandoc}[1]{#1}
+  - \hideFromPandoc{ \let\Begin\begin \let\End\end }
+  - \hideFromPandoc{ \let\CardB\begin \let\CardE\end }
+  - \useDarkTheme 
+  - \usePrimaryBlueGrey \useAccentBlue
+  # - '\usePrimary{4527A0}{311B92}{FFFFFF}'
+  # - '\useAccent{C6FF00}{000000}'
+---
+
+# Qu'est-ce que JEE ?
+
+---
+
+## Qu'est-ce que JEE ?
+
+\Begin{cardTiny}{}
+
+- Version actuelle Java EE 8
+- Ensemble de Java Specification Requests ou JSR
+  - JTA (Java Transaction API)
+  - JDBC (Java DataBase Connection)
+  - JPA (Java Persistence API)
+  - Servlet
+  - JSP (JavaServer PAges)
+  - EJB (Enterprise Java Bean)
+
+\End{cardTiny}
+
+----
