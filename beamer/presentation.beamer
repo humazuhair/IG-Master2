@@ -35,3 +35,51 @@ header-includes:
 \End{cardTiny}
 
 ----
+
+## Qu'est-ce que JEE ?
+
+\Begin{cardTiny}
+
+- Plusieurs type de serveur
+  - Serveur d'application (Glassfish, WildFly...)
+  - Conteneur de servlets (Tomcat, Jetty, WebSphere...)
+
+\End{cardTiny}
+
+\Begin{cardTiny}
+
+- Implémentation des specifications
+  - Spring Framwork et ses modules
+    - Spring JDBC (implémente JDBC)
+    - Spring ORM (binding hibernate et JPA)
+    - Spring Web et WebMVC (implémentent servlet)
+  - Hibernate ORM (JPA)
+
+\End{cardTiny}
+
+# Pourquoi Spring ?
+
+----
+
+## Que fait Spring ?
+
+\begin{card}[L'inversion de contrôle (IOC)]
+
+\begin{itemize}
+\item Résolution des dépendences pour la création des beans (Singleton/Prototype)
+\item Injection des dépendences
+\end{itemize}
+
+\end{card}
+
+\begin{card}[Programmation orientée aspect (AOP)]
+
+\begin{itemize}
+\item Transactions
+\item Exception handler
+\item Intercepteurs (ex: securité)
+\end{itemize}
+
+\end{card}
+
+# Pourquoi Hibernate ?
