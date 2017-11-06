@@ -3,6 +3,7 @@ package io.github.joxit.pizzeria.webservice;
 import io.github.joxit.pizzeria.dto.PizzaDTO;
 import io.github.joxit.pizzeria.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import java.util.List;
  * @since 2017-11-02
  */
 @RestController
+@CrossOrigin
 @RequestMapping({"/api", "/api/"})
 public class PizzaWebService {
     @Autowired
