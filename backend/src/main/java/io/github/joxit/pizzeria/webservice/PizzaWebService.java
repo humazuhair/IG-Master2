@@ -2,6 +2,8 @@ package io.github.joxit.pizzeria.webservice;
 
 import io.github.joxit.pizzeria.dto.PizzaDTO;
 import io.github.joxit.pizzeria.service.PizzeriaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,17 +22,12 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping({"/api", "/api/"})
 public class PizzaWebService {
+    private static Logger LOGGER = LoggerFactory.getLogger(PizzaWebService.class);
     @Autowired
     private PizzeriaService pizzeriaService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<PizzaDTO> getPizzeria(@QueryParam("type") String type) {
-        if ("eager".equalsIgnoreCase(type)) {
-            return pizzeriaService.getAllWithIng();
-        } else if ("custom".equalsIgnoreCase(type)) {
-            return pizzeriaService.getAllCustom();
-        } else {
-            return pizzeriaService.getAll();
-        }
+        return pizzeriaService.getAll(type);
     }
 }

@@ -11,7 +11,6 @@ import javax.ws.rs.QueryParam;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-01
  */
 @Controller
@@ -22,13 +21,7 @@ public class PizzeriaWebApp {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getPizzeria(@QueryParam("type") String type, ModelMap model) {
-        if ("eager".equalsIgnoreCase(type)) {
-            model.addAttribute("pizzas", pizzeriaService.getAllWithIng());
-        } else if ("custom".equalsIgnoreCase(type)) {
-            model.addAttribute("pizzas", pizzeriaService.getAllCustom());
-        } else {
-            model.addAttribute("pizzas", pizzeriaService.getAll());
-        }
+        model.addAttribute("pizzas", pizzeriaService.getAll(type));
         return "index";
     }
 }
