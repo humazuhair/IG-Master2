@@ -7,12 +7,14 @@ theme: material
 toc: true
 header-includes:
   - \newcommand{\hideFromPandoc}[1]{#1}
+  - \usepackage{fourier}
   - \hideFromPandoc{ \let\Begin\begin \let\End\end }
   - \hideFromPandoc{ \let\CardB\begin \let\CardE\end }
   - \useDarkTheme 
   - \usePrimaryBlueGrey \useAccentBlue
   # - '\usePrimary{4527A0}{311B92}{FFFFFF}'
   # - '\useAccent{C6FF00}{000000}'
+build: pandoc -st beamer presentation.beamer -o presentation.pdf
 ---
 
 # Qu'est-ce que JEE ?
@@ -48,7 +50,7 @@ header-includes:
 
 \Begin{cardTiny}
 
-- Implémentation des specifications
+- Implémentation des spécifications
   - Spring Framwork et ses modules
     - Spring JDBC (implémente JDBC)
     - Spring ORM (binding hibernate et JPA)
@@ -56,6 +58,47 @@ header-includes:
   - Hibernate ORM (JPA)
 
 \End{cardTiny}
+
+# Pourquoi Hibernate ?
+
+----
+
+## Que fait Hibernate ?
+
+\begin{card}[Object-Relational Mapping (ORM)]
+
+\begin{itemize}
+\item Classe Java $\Leftrightarrow$ Table SQL (Entity)
+\item Transactions (JTA)
+\item Création des tables au démarage
+\item Lazy loading
+\item Gestion des sessions à la DB
+\item Cache
+\end{itemize}
+
+\end{card}
+
+## Avantages et Inconvéniants
+
+\begin{card}[Avantages]
+
+\begin{itemize}
+\item<1-> Mapping des classes automatique
+\item<1-> Rapidité d'implémentation
+\item<1-> Génère les requêtes SQL
+\item<1-> Changement facile de SGBD
+\end{itemize}
+
+\end{card}
+
+\begin{card}[Inconvéniants]
+
+\begin{itemize}
+\item<2-> Requêtes complexes pas toujours optimisées
+\item<2-> \danger Les relations One/Many To Many en mode lazzy
+\end{itemize}
+
+\end{card}
 
 # Pourquoi Spring ?
 
@@ -66,8 +109,8 @@ header-includes:
 \begin{card}[L'inversion de contrôle (IOC)]
 
 \begin{itemize}
-\item Résolution des dépendences pour la création des beans (Singleton/Prototype)
-\item Injection des dépendences
+\item Résolution des dépendances pour la création des beans (Singleton/Prototype)
+\item Injection des dépendances
 \end{itemize}
 
 \end{card}
@@ -82,4 +125,38 @@ header-includes:
 
 \end{card}
 
-# Pourquoi Hibernate ?
+# Qu'est-ce que Maven ?
+
+----
+
+## Qu'est-ce que Maven ?
+
+\Begin{card}
+
+- Gestionnaire de build
+- Gestionnaire de dépendances
+- Utilisation du multi-module
+- Lancement des tests
+- Plugins en tout genre
+
+\End{card}
+
+# Reactive APIs?
+
+----
+
+## Spring 5 reactive API
+
+\Begin{cardTiny}
+
+- Modèle classique: 
+  - 1 requête = 1 thread
+  - 10 requêtes = 10 threads
+  - 100 requêtes = 100 threads
+  -  Mais combien d’opérations peuvent réellement être exécutées en même temps?
+
+- Modèle réactif:
+  - Des requêtes, des "workers"
+  - Optimiser l’activité du thread plutôt que le nombre de threads 
+
+\End{cardTiny}
