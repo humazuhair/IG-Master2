@@ -226,3 +226,12 @@ footer {
 .ingredients{
   white-space: normal;
 }
+
+.buttons-list {
+  padding: 5px;
+  margin: auto;
+  width: fit-content;
+}
+.buttons-list material-button {
+  margin: 5px;
+}

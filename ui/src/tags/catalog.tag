@@ -23,6 +23,14 @@
     <div hide="{ pizzeria.catalog.loadend }" class="spinner-wrapper">
       <material-spinner></material-spinner>
     </div>
+    <div show="{ pizzeria.catalog.loadend }" class="buttons-list">
+      <material-button onclick="pizzeria.catalog.display('lazzy')">Lazzy</material-button>
+      <material-button onclick="pizzeria.catalog.display('eager')">Eager</material-button>
+      <material-button onclick="pizzeria.catalog.display('custom')">Custom</material-button>
+      <material-button onclick="pizzeria.catalog.display('spring-data-jpa')">Spring Data JPA</material-button>
+      <material-button onclick="pizzeria.catalog.display('errorHandled')">Error Handled</material-button>
+      <material-button onclick="pizzeria.catalog.display('errorNotHandled')">Error Not Handled</material-button>
+    </div>
     <table show="{ pizzeria.catalog.loadend }" style="border: none;">
       <thead>
         <tr>
@@ -44,20 +52,36 @@
   <script>
     pizzeria.catalog.instance = this;
     this.mixin('rg.router');
-    pizzeria.catalog.display = function () {
-      fetch(pizzeria.url()).then(function(response) {
+    pizzeria.catalog.display = function (type) {
+      fetch(pizzeria.url() + '?type=' + (
+        type || 'lazzy'
+      )).then(function (response) {
         if (response.ok) {
           pizzeria.snackbar(response.statusText);
           return response.json();
+        } else if (response.status == 500 || response.status == 400) {
+          return response.text().then(function(text) {
+            throw text;
+          });
         }
-        throw new Error(response.statusText);
-      }).then(function(json) {
+        throw {message: 'Server Not Found'}
+      }).then(function (json) {
         pizzeria.catalog.pizze = json;
-      }).catch(function(err) {
+      }).catch(function (err) {
         pizzeria.catalog.pizze = [];
-        pizzeria.snackbar('Server not found', true);
+        var msg;
+        if (typeof err === 'string') {
+          try {
+            msg = JSON.parse(err.message || err).message;
+          } catch(e) {
+            msg = 'Not JSON Error'
+          }
+        } else {
+          msg = err;
+        }
+        pizzeria.snackbar(msg, true);
         return err;
-      }).then(function(){
+      }).then(function () {
         pizzeria.catalog.loadend = true;
         pizzeria.catalog.instance.update();
       });
