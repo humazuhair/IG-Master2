@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,7 +50,10 @@ public class PizzeriaService {
         } else if("spring-data-jpa".equalsIgnoreCase(type)){
             LOGGER.info("Run getAllSDJ");
             return getAllSDJ();
-        } else {
+        } else if("empty".equalsIgnoreCase(type)) {
+            LOGGER.info("Run empty");
+            return new ArrayList<>();
+        } else{
             LOGGER.info("Run getAll");
             return getAll();
         }
