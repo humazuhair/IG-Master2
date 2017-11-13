@@ -44,9 +44,7 @@
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>
@@ -58,13 +56,10 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-
     <!-- Spring configuration for annotations -->
     <context:annotation-config/>
     <jpa:repositories base-package="io.github.joxit.pizzeria.persistence" />
     <context:component-scan base-package="io.github.joxit.pizzeria.persistence"/>
     <context:component-scan base-package="io.github.joxit.pizzeria.service"/>
     <context:component-scan base-package="io.github.joxit.pizzeria.mapper"/>
-    <context:component-scan base-package="io.github.joxit.pizzeria.webapp"/>
-    <context:component-scan base-package="io.github.joxit.pizzeria.webservice"/>
 </beans>

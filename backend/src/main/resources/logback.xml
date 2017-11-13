@@ -11,11 +11,19 @@
         </filter>
     </appender>
 
+    <logger name="org.hibernate.engine.transaction.internal">
+        <level value="DEBUG"/>
+        <appender-ref ref="consoleAppender" />
+    </logger>
+    <logger name="org.hibernate.SQL">
+        <level value="DEBUG"/>
+        <appender-ref ref="consoleAppender" />
+    </logger>
+
     <logger name="io.github.joxit.pizzeria" additivity="false">
         <level value="INFO" />
         <appender-ref ref="consoleAppender" />
     </logger>
-
     <root>
         <level value="INFO" />
         <appender-ref ref="consoleAppender" />
