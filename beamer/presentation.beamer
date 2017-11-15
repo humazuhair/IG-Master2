@@ -160,3 +160,50 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
   - Optimiser l’activité du thread plutôt que le nombre de threads 
 
 \End{cardTiny}
+
+# Et pour après ?
+
+----
+
+## Autres frameworks ?
+
+\begin{card}[Alternatives à JEE]
+
+\begin{itemize}
+\item Vert.x (framework événementiel par la fondation Eclipse)
+\item Netty (framework non-blocking I/O par Netty Project Community)
+\item Spring Framework et Spring Boot
+\end{itemize}
+
+\end{card}
+
+## Stage eBiz
+
+\Begin{cardTiny}
+
+- 2 mois de formation =
+    - 1 semaine en piscine (JEE stack)
+    - Projet incrémental
+        - https://github.com/resourcepool/training-java
+        - Java 8 (Stream API, Lambdas…), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Criteria, QueryDSL, Jax-WS, Jax-RS, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular.js
+        - CI Week
+        - Performance tuning days
+    - Conférences techniques (JVM, Spring, ORMs)
+    - Formations annexes: Git, React.js, Android, Gatling, Agilité
+    - Certifications Oracle Certified Java Programmer Associate & Professional
+- 4 mois sur un projet interne
+
+\End{cardTiny}
+
+## Stage eBiz
+
+\Begin{cardTiny}
+
+- Appartement payé à 12 min à pied des locaux (prio. Province)
+- Rémunération 850 € + appart puis 35k€ en CDI
+    - Salaire en fonction de l’investissement et non de l’XP
+- Séminaires + Hackathons + Soirées
+- Devoxx, Droidcon, …
+- Tech nights
+
+\End{cardTiny}
