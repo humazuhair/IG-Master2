@@ -62,4 +62,6 @@
     <context:component-scan base-package="io.github.joxit.pizzeria.persistence"/>
     <context:component-scan base-package="io.github.joxit.pizzeria.service"/>
     <context:component-scan base-package="io.github.joxit.pizzeria.mapper"/>
+    <context:component-scan base-package="io.github.joxit.pizzeria.vertx" />
+
 </beans>
