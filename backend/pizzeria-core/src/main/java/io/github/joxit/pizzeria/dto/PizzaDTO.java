@@ -37,4 +37,12 @@ public class PizzaDTO {
         this.ingredients = ingredients;
     }
 
+    @Override
+    public String toString() {
+        return "PizzaDTO{" +
+                "name='" + name + '\'' +
+                ", prix=" + prix +
+                ", ingredients=" + ingredients +
+                '}';
+    }
 }

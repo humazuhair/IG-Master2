@@ -22,7 +22,7 @@ public class SpringVerticleFactory implements VerticleFactory, ApplicationContex
     @Override
     public String prefix() {
         // Just an arbitrary string which must uniquely identify the verticle factory
-        return "myapp";
+        return "pizzeria-vertx";
     }
 
     @Override

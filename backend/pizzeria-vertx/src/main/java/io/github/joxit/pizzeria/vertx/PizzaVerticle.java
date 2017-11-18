@@ -6,7 +6,6 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.Message;
-import io.vertx.core.json.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,12 @@ public class PizzaVerticle extends AbstractVerticle {
     }
 
     private void handle(Message<String> msg) {
-        msg.reply(pizzeriaService.getAll(msg.body()));
+        Future.future(ar -> ar.complete(pizzeriaService.getAll(msg.body())))
+                .setHandler(ar -> msg.reply(ar.result()))
+                .otherwise(err -> {
+                    msg.fail(500, err.getMessage());
+                    return err.getMessage();
+                }).tryFail(new RuntimeException());
     }
 
 }

@@ -1,5 +1,6 @@
 package io.github.joxit.pizzeria.vertx;
 
+import com.jolbox.bonecp.BoneCPDataSource;
 import io.netty.util.ResourceLeakDetector;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.DeploymentOptions;
@@ -11,28 +12,86 @@ import io.vertx.core.eventbus.MessageCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+@PropertySource(value = {"classpath:application.properties"}, ignoreResourceNotFound = true)
+@EnableJpaRepositories(basePackages = {"io.github.joxit.pizzeria.persistence"})
+@ComponentScan({"io.github.joxit.pizzeria.persistence", "io.github.joxit.pizzeria.service", "io.github.joxit.pizzeria.mapper", "io.github.joxit.pizzeria.vertx"})
+@EnableTransactionManagement
 @Configuration
 public class VertexExample {
     private static final Logger LOGGER = LoggerFactory.getLogger(VertexExample.class);
 
+    @Value("${dataSource.username}")
+    private String dataSourceUsername;
+    @Value("${dataSource.jdbcUrl}")
+    private String jdbcUrl;
+    @Value("${dataSource.password}")
+    private String dataSourcePassword;
+
     @Autowired
     private Vertx vertx;
-
     @Autowired
     private SpringVerticleFactory verticleFactory;
 
+    public static void main(String[] args) {
+        new AnnotationConfigApplicationContext(VertexExample.class);
+    }
+
+    @Bean
+    public DataSource dataSource() {
+        final BoneCPDataSource dataSource = new BoneCPDataSource();
+        dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
+        dataSource.setJdbcUrl("jdbc:" + jdbcUrl);
+        dataSource.setUsername(dataSourceUsername);
+        dataSource.setPassword(dataSourcePassword);
+        return dataSource;
+    }
+
+    @Bean
+    @Autowired
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    @Autowired
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+        final LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setDataSource(dataSource);
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        factory.setDataSource(dataSource);
+        factory.setJpaVendorAdapter(vendorAdapter);
+        factory.setPackagesToScan("io.github.joxit.pizzeria.model");
+        Properties jpaProperties = new Properties();
+        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        factory.setJpaProperties(jpaProperties);
+        return factory;
+    }
+
+    @Bean
+    @Autowired
+    public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactory) {
+        return new JpaTransactionManager(entityManagerFactory.getNativeEntityManagerFactory());
+    }
 
     @PostConstruct
     private void deployVerticle() {
         ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.DISABLED);
-
         vertx.registerVerticleFactory(verticleFactory);
 
         EventBus eventBus = vertx.eventBus();
@@ -64,7 +123,7 @@ public class VertexExample {
     }
 
     @Bean
-    protected Vertx vertx() {
+    public Vertx vertx() {
         return Vertx.vertx();
     }
 
@@ -74,8 +133,9 @@ public class VertexExample {
 
         /**
          * Constructs a new ObjectMessageCodec.
+         *
          * @param clazz the class
-         * @param <T> the type of the class
+         * @param <T>   the type of the class
          * @return a new instance
          */
         private static <T> ObjectMessageCodec<T> of(Class<T> clazz) {
@@ -84,6 +144,7 @@ public class VertexExample {
 
         /**
          * Constructs a new ObjectMessageCodec from a class.
+         *
          * @param clazz the class
          */
         private ObjectMessageCodec(Class<T> clazz) {

@@ -1,6 +1,5 @@
 package io.github.joxit.pizzeria.vertx;
 
-import com.google.common.net.MediaType;
 import io.github.joxit.pizzeria.dto.PizzaDTO;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -11,13 +10,13 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.CorsHandler;
+import io.vertx.ext.web.handler.ErrorHandler;
 import io.vertx.ext.web.handler.TimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.util.List;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
@@ -51,7 +50,7 @@ public class HttpServerVerticle extends AbstractVerticle {
         router.route().handler(bodyHandler);
         router.route().handler(this::handle);
 
-        router.route().failureHandler(this::failureHandler);
+        router.route().failureHandler(ErrorHandler.create(true));
 
         HttpServerOptions options = new HttpServerOptions()
                 .setHost("0.0.0.0")
@@ -69,6 +68,7 @@ public class HttpServerVerticle extends AbstractVerticle {
                     }
                 });
     }
+
     private void handle(RoutingContext ctx) {
         HttpServerRequest request = ctx.request();
         HttpServerResponse response = ctx.response();
@@ -79,25 +79,10 @@ public class HttpServerVerticle extends AbstractVerticle {
                 LOGGER.error("Error in pizzeria", ar.cause());
                 ctx.fail(ar.cause());
             } else {
-                response.putHeader("Content-Type", "application/json");
-                response.setStatusCode(200);
-                response.end(Json.encode(ar.result().body()));
+                response.putHeader("Content-Type", "application/json")
+                        .setStatusCode(200)
+                        .end(Json.encode(ar.result().body()));
             }
         });
-    }
-
-    private void failureHandler(RoutingContext ctx) {
-        Throwable failure = ctx.failure();
-        if (failure instanceof SecurityException) {
-            ctx.response()
-                    .setStatusCode(401)
-                    .end(failure.getMessage());
-        } else if (failure instanceof NumberFormatException) {
-            ctx.response()
-                    .setStatusCode(400)
-                    .end(failure.getMessage());
-        } else {
-            ctx.next();
-        }
     }
 }
