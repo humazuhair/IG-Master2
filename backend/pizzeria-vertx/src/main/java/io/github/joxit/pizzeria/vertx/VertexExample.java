@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-@PropertySource(value = {"classpath:application.properties"}, ignoreResourceNotFound = true)
+@PropertySource(value = {"classpath:application.properties", "application.properties", "/conf/application.properties"}, ignoreResourceNotFound = true)
 @EnableJpaRepositories(basePackages = {"io.github.joxit.pizzeria.persistence"})
 @ComponentScan({"io.github.joxit.pizzeria.persistence", "io.github.joxit.pizzeria.service", "io.github.joxit.pizzeria.mapper", "io.github.joxit.pizzeria.vertx"})
 @EnableTransactionManagement

@@ -1,2 +1,2 @@
 *
-!target/pizzeria-servlet.war
+!target/pizzeria-vertx-jar-with-dependencies.jar

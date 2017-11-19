@@ -12,24 +12,47 @@ Lien du TP1: <https://lipn.univ-paris13.fr/~breuvart/LEE/TP1.pdf>
 docker run -d -p 3306:3306 --name mysql-db -e MYSQL_ROOT_PASSWORD=toor -v $(pwd)/initdb:/docker-entrypoint-initdb.d/ mysql:8
 ```
 
-2.  Build du backend :
+2.  Utilisation du backend :
+    -   Avec le module servlet sur un tomcat :
+        1.  Build du module
 
 ```sh
-mvn clean war:war package
+mvn -Pservlet clean package
 ```
 
-3.  Lancer le backend :
-    -   Avec maven :
+        2.  Lancer le backend :
+            -   Avec maven et plugin cargo :
 
 ```sh
-clean cargo:run
+cd pizzeria-servlet && mvn cargo:run
 ```
 
     -   Avec docker:
 
 ```sh
-docker build -t ig-master/pizzeria .
-docker run -ti --rm -p 8080:8080 --link mysql-db:mysql-db -e JAVA_OPTS=-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria ig-master/pizzeria
+docker build -t ig-master/pizzeria:servlet pizzeria-servlet
+docker run -ti --rm -p 8080:8080 --link mysql-db:mysql-db -e JAVA_OPTS=-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria ig-master/pizzeria:servlet
+```
+
+    -   Avec le module vertx (fat-jar) :
+        1.  Build du module
+
+```sh
+mvn -Pvertx clean package
+```
+
+        2.  Lancer le backend :
+            -   Avec java:
+
+```sh
+java -jar pizzeria-vertx/target/pizzeria-vertx-jar-with-dependencies.jar 
+```
+
+    -   Avec docker:
+
+```sh
+docker build -t ig-master/pizzeria:vertx pizzeria-vertx
+docker run -ti --rm -p 8080:8080 --link mysql-db:mysql-db -e JAVA_OPTS=-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria ig-master/pizzeria:vertx
 ```
 
 4.  Build de l'interface utilisateur :

@@ -1,6 +1,8 @@
 package io.github.joxit.pizzeria.vertx;
 
 import io.github.joxit.pizzeria.dto.PizzaDTO;
+import io.github.joxit.pizzeria.exception.HandledException;
+import io.github.joxit.pizzeria.service.PizzeriaService;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.eventbus.EventBus;
@@ -10,10 +12,10 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.CorsHandler;
-import io.vertx.ext.web.handler.ErrorHandler;
 import io.vertx.ext.web.handler.TimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +29,9 @@ public class HttpServerVerticle extends AbstractVerticle {
     private static final Logger LOGGER = LoggerFactory.getLogger(PizzaVerticle.class);
 
     private static final long TIMEOUT = 30000;
+
+    @Autowired
+    private PizzeriaService pizzeriaService;
 
     @Override
     public void start(Future<Void> startFuture) throws Exception {
@@ -48,9 +53,18 @@ public class HttpServerVerticle extends AbstractVerticle {
 
         BodyHandler bodyHandler = BodyHandler.create().setBodyLimit(1024 * 1024);
         router.route().handler(bodyHandler);
-        router.route().handler(this::handle);
-
-        router.route().failureHandler(ErrorHandler.create(true));
+        router.get("/api")
+                .produces("application/json")
+                .handler(this::handle)
+                .failureHandler(ctx -> {
+                    Throwable err = ctx.failure();
+                    LOGGER.error(err.getMessage());
+                    if (err instanceof HandledException) {
+                        ctx.response().setStatusCode(400).end(err.getMessage());
+                    } else {
+                        ctx.next();
+                    }
+                });
 
         HttpServerOptions options = new HttpServerOptions()
                 .setHost("0.0.0.0")
@@ -60,10 +74,10 @@ public class HttpServerVerticle extends AbstractVerticle {
                 .requestHandler(router::accept)
                 .listen(res -> {
                     if (res.succeeded()) {
-                        LOGGER.info("Vertex server started");
+                        LOGGER.info("Vertex node started");
                         startFuture.complete();
                     } else {
-                        LOGGER.info("Vertex server failed to start");
+                        LOGGER.info("Vertex node failed to start");
                         startFuture.fail(res.cause());
                     }
                 });
@@ -73,11 +87,21 @@ public class HttpServerVerticle extends AbstractVerticle {
         HttpServerRequest request = ctx.request();
         HttpServerResponse response = ctx.response();
 
+        response.putHeader("Content-Type", "application/json")
+                .setStatusCode(200)
+                .end(Json.encode(pizzeriaService.getAll(request.getParam("type"))));
+    }
+
+    private void handleWithEventBus(RoutingContext ctx) {
+        HttpServerRequest request = ctx.request();
+        HttpServerResponse response = ctx.response();
+
         EventBus eb = ctx.vertx().eventBus();
+
         eb.<List<PizzaDTO>>send(PizzaVerticle.name, request.getParam("type"), ar -> {
             if (ar.failed()) {
                 LOGGER.error("Error in pizzeria", ar.cause());
-                ctx.fail(ar.cause());
+                ctx.fail(500);
             } else {
                 response.putHeader("Content-Type", "application/json")
                         .setStatusCode(200)
