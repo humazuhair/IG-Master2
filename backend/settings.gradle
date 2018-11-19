@@ -1,0 +1,6 @@
+rootProject.name = 'pizzeria'
+include 'pizzeria-core', 'pizzeria-servlet', 'pizzeria-vertx'
+
+project(':pizzeria-core').projectDir = "$rootDir/pizzeria-core" as File
+project(':pizzeria-servlet').projectDir = "$rootDir/pizzeria-servlet" as File
+project(':pizzeria-vertx').projectDir = "$rootDir/pizzeria-vertx" as File

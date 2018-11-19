@@ -1,6 +1,6 @@
-FROM tomcat:8.5-alpine
+FROM tomcat:9.0-alpine
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY target/pizzeria-servlet.war /usr/local/tomcat/webapps/ROOT.war
+COPY build/libs/pizzeria-servlet.war /usr/local/tomcat/webapps/ROOT.war
 

@@ -1,0 +1,16 @@
+
+description = ''
+dependencies {
+    compile group: 'com.jolbox', name: 'bonecp', version:'0.8.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version:"${springVersion}"
+    compile group: 'org.springframework', name: 'spring-context', version:"${springVersion}"
+    compile group: 'org.springframework', name: 'spring-orm', version:"${springVersion}"
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version:'2.0.1.RELEASE'
+    compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version:'1.0.0.Final'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version:'1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version:'1.2.3'
+    compile group: 'mysql', name: 'mysql-connector-java', version:"${mysqlVersion}"
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'5.3.7.Final'
+}
+

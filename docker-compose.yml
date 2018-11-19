@@ -1,0 +1,47 @@
+version: '3'
+
+networks:
+  pizzeria:
+    driver: bridge
+
+services:
+  mysql-db:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+    networks:
+      - pizzeria
+
+  servlet:
+    build: ./backend/pizzeria-servlet
+    image: ig-master/pizzeria:servlet
+    ports:
+      - 8080:8080
+    environment:
+      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria"
+    networks:
+      - pizzeria
+    depends_on:
+      - mysql-db
+  vertx:
+    build: ./backend/pizzeria-vertx
+    image: ig-master/pizzeria:vertx
+    ports:
+      - 8081:8081
+    environment:
+      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria"
+    networks:
+      - pizzeria
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile.builder
+    image: ig-master/pizzeria-ui
+    ports:
+      - 80:80
+    depends_on:
+      - mysql-db

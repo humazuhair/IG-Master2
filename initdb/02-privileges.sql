@@ -1,5 +1,5 @@
-CREATE USER 'pizzaiolo'@'localhost' IDENTIFIED BY 'PizzaioloDePizzaHut';
+CREATE USER 'pizzaiolo'@'%' IDENTIFIED WITH mysql_native_password BY 'PizzaioloDePizzaHut';
 
-GRANT ALL PRIVILEGES ON `pizzeria`.* TO 'pizzaiolo'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON `pizzeria`.* TO 'pizzaiolo'@'%' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;

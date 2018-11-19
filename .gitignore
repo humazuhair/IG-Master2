@@ -7,7 +7,11 @@ tmp/
 node_modules/
 jaxws/jaxws-client/src/main/
 classes/
- 
+.gradle
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
 # OS Files #
 .DS_Store
  
@@ -19,6 +23,7 @@ classes/
 *.ear
 *.db
 rebel.xml
+!gradle-wrapper.jar
 
 ######################
 # Windows
