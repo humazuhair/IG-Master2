@@ -22,7 +22,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria"
+      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria?useSSL=false\\&allowPublicKeyRetrieval=true"
     networks:
       - pizzeria
     depends_on:
@@ -33,7 +33,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria"
+      JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
     networks:
       - pizzeria
   ui:

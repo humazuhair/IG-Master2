@@ -2,7 +2,7 @@
 
 % Title page
 \defbeamertemplate*{title page}{material}[1][]
-{ 
+{
   \makebox[\linewidth][c]{%
   \begin{minipage}[t][\paperheight]{\paperwidth}
     \raggedright
@@ -17,7 +17,7 @@
       {\usebeamerfont{author}\insertauthor}\\
       {\usebeamerfont{author}\insertdate}
     \end{tcolorbox}
-    
+
     %\begin{tcolorbox}[arc=5mm,width=10mm,height=10mm, enhanced, %
                   %colback=accent, coltext=textAccent, %
                   %fuzzy shadow={0mm}{ 0.9mm}{ 0.6mm}{0.2mm}{shadow!20!primary}, % top
@@ -27,6 +27,20 @@
                   %boxrule=0mm, enlarge left by=10mm, enlarge top by=-10mm]%
                   %\includegraphics[width=7mm]{\iconFolder/ic_account_circle_48px}
     %\end{tcolorbox}
+
+    \vfill
+    \centering
+    \begin{minipage}{0.33\paperwidth}
+      \begin{flushleft}
+        \includegraphics[width=\textwidth,keepaspectratio]{jawg.png}
+      \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.33\paperwidth}
+      \begin{flushright}
+        \includegraphics[width=\textwidth,keepaspectratio]{takima.png}
+      \end{flushright}
+    \end{minipage}
   \end{minipage}%
   }%
   \vfill

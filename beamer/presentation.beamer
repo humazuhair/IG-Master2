@@ -2,7 +2,7 @@
 title: Introduction à Spring et Hibernate
 subtitle: Institut Galilée - Master 2 EDI² et PLS
 author: Jones Magloire
-date: 27 Novembre 2017
+date: 03 Décembre 2018
 theme: material
 toc: true
 header-includes:
@@ -10,7 +10,7 @@ header-includes:
   - \usepackage{fourier}
   - \hideFromPandoc{ \let\Begin\begin \let\End\end }
   - \hideFromPandoc{ \let\CardB\begin \let\CardE\end }
-  - \useDarkTheme 
+  # - \useDarkTheme
   - \usePrimaryBlueGrey \useAccentBlue
   # - '\usePrimary{4527A0}{311B92}{FFFFFF}'
   # - '\useAccent{C6FF00}{000000}'
@@ -25,7 +25,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \Begin{cardTiny}{}
 
-- Version actuelle Java EE 8
+- Version actuelle Jakarta EE 8
 - Ensemble de Java Specification Requests ou JSR
   - JTA (Java Transaction API)
   - JDBC (Java DataBase Connection)
@@ -33,6 +33,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
   - Servlet
   - JSP (JavaServer PAges)
   - EJB (Enterprise Java Bean)
+- Cédé à Eclipse Foundation en septembre 2017
 
 \End{cardTiny}
 
@@ -125,19 +126,20 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \end{card}
 
-# Qu'est-ce que Maven ?
+# Qu'est-ce que ~~Maven~~ Gradle ?
 
 ----
 
-## Qu'est-ce que Maven ?
+## Qu'est-ce que ~~Maven~~ Gradle ?
 
 \Begin{card}
 
-- Gestionnaire de build
-- Gestionnaire de dépendances
+- Gestionnaire de build et de dépendances évolué
 - Utilisation du multi-module
 - Lancement des tests
 - Plugins en tout genre
+- Sans installation grâce au wrapper
+- Moins verbeux que Maven (Goovy vs XML)
 
 \End{card}
 
@@ -149,7 +151,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \Begin{cardTiny}
 
-- Modèle classique: 
+- Modèle classique:
   - 1 requête = 1 thread
   - 10 requêtes = 10 threads
   - 100 requêtes = 100 threads
@@ -157,7 +159,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 - Modèle réactif:
   - Des requêtes, des "workers"
-  - Optimiser l’activité du thread plutôt que le nombre de threads 
+  - Optimiser l’activité du thread plutôt que le nombre de threads
 
 \End{cardTiny}
 
@@ -177,17 +179,16 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \end{card}
 
-## Stage eBiz
+## Stage takima
 
 \Begin{cardTiny}
 
-- 2 mois de formation =
+- 2 mois de formation
     - 1 semaine en piscine (JEE stack)
     - Projet incrémental
-        - https://github.com/resourcepool/training-java
-        - Java 8 (Stream API, Lambdas…), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Criteria, QueryDSL, Jax-WS, Jax-RS, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular.js
-        - CI Week
-        - Performance tuning days
+        - Java 11 (Stream API, Lambdas…), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Criteria, QueryDSL, Jax-WS, Jax-RS, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular.js
+        - 1 semaine DevOPS
+        - 1 jour sur la performance + tunning
     - Conférences techniques (JVM, Spring, ORMs)
     - Formations annexes: Git, React.js, Android, Gatling, Agilité
     - Certifications Oracle Certified Java Programmer Associate & Professional
@@ -195,15 +196,14 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \End{cardTiny}
 
-## Stage eBiz
+## Stage takima
 
 \Begin{cardTiny}
 
-- Appartement payé à 12 min à pied des locaux (prio. Province)
-- Rémunération 850 € + appart puis 35k€ en CDI
-    - Salaire en fonction de l’investissement et non de l’XP
-- Séminaires + Hackathons + Soirées
-- Devoxx, Droidcon, …
+- Séminaires (Vendredi, Samedi, Dimanche)
+- Hackathons
 - Tech nights
+- 1 Conf offerte / an (Devoxx, Droidcon, Paris Container Day...)
+- Billard
 
 \End{cardTiny}
