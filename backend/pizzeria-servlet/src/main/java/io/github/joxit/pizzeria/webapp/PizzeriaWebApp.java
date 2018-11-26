@@ -16,12 +16,12 @@ import javax.ws.rs.QueryParam;
 @Controller
 @RequestMapping({"/index.html", "/"})
 public class PizzeriaWebApp {
-    @Autowired
-    private PizzeriaService pizzeriaService;
+  @Autowired
+  private PizzeriaService pizzeriaService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String getPizzeria(@QueryParam("type") String type, ModelMap model) {
-        model.addAttribute("pizzas", pizzeriaService.getAll(type));
-        return "index";
-    }
+  @RequestMapping(method = RequestMethod.GET)
+  public String getPizzeria(@QueryParam("type") String type, ModelMap model) {
+    model.addAttribute("pizzas", pizzeriaService.getAll(type));
+    return "index";
+  }
 }

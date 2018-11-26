@@ -17,26 +17,26 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @Component
 @Scope(SCOPE_PROTOTYPE)
 public class PizzaVerticle extends AbstractVerticle {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PizzaVerticle.class);
-    public static final String name = "PizzaVerticle";
+  private static final Logger LOGGER = LoggerFactory.getLogger(PizzaVerticle.class);
+  public static final String name = "PizzaVerticle";
 
-    @Autowired
-    private PizzeriaService pizzeriaService;
+  @Autowired
+  private PizzeriaService pizzeriaService;
 
-    @Override
-    public void start(Future<Void> startFuture) throws Exception {
-        LOGGER.info("Start Pizza Verticle");
-        EventBus eb = vertx.eventBus();
-        eb.localConsumer(name, this::handle);
-    }
+  @Override
+  public void start(Future<Void> startFuture) throws Exception {
+    LOGGER.info("Start Pizza Verticle");
+    EventBus eb = vertx.eventBus();
+    eb.localConsumer(name, this::handle);
+  }
 
-    private void handle(Message<String> msg) {
-        Future.future(ar -> ar.complete(pizzeriaService.getAll(msg.body())))
-                .setHandler(ar -> msg.reply(ar.result()))
-                .otherwise(err -> {
-                    msg.fail(500, err.getMessage());
-                    return err.getMessage();
-                }).tryFail(new RuntimeException());
-    }
+  private void handle(Message<String> msg) {
+    Future.future(ar -> ar.complete(pizzeriaService.getAll(msg.body())))
+        .setHandler(ar -> msg.reply(ar.result()))
+        .otherwise(err -> {
+          msg.fail(500, err.getMessage());
+          return err.getMessage();
+        }).tryFail(new RuntimeException());
+  }
 
 }

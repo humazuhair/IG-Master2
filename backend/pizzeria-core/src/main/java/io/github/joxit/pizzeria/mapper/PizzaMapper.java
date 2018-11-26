@@ -11,32 +11,31 @@ import java.util.stream.Collectors;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-01
  */
 @Component
 public class PizzaMapper {
-    public PizzaDTO modelToDTO(Pizza pizza) {
-        PizzaDTO pizzaDTO = new PizzaDTO();
-        pizzaDTO.setName(pizza.getName());
-        pizzaDTO.setPrix(pizza.getPrix());
-        pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
-        return pizzaDTO;
-    }
+  public PizzaDTO modelToDTO(Pizza pizza) {
+    PizzaDTO pizzaDTO = new PizzaDTO();
+    pizzaDTO.setName(pizza.getName());
+    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
+    return pizzaDTO;
+  }
 
-    public PizzaDTO modelToDTO(PizzaEager pizza) {
-        PizzaDTO pizzaDTO = new PizzaDTO();
-        pizzaDTO.setName(pizza.getName());
-        pizzaDTO.setPrix(pizza.getPrix());
-        pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
-        return pizzaDTO;
-    }
+  public PizzaDTO modelToDTO(PizzaEager pizza) {
+    PizzaDTO pizzaDTO = new PizzaDTO();
+    pizzaDTO.setName(pizza.getName());
+    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
+    return pizzaDTO;
+  }
 
-    public PizzaDTO modelToDTO(PizzaCustom pizza) {
-        PizzaDTO pizzaDTO = new PizzaDTO();
-        pizzaDTO.setName(pizza.getName());
-        pizzaDTO.setPrix(pizza.getPrix());
-        pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
-        return pizzaDTO;
-    }
+  public PizzaDTO modelToDTO(PizzaCustom pizza) {
+    PizzaDTO pizzaDTO = new PizzaDTO();
+    pizzaDTO.setName(pizza.getName());
+    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
+    return pizzaDTO;
+  }
 }

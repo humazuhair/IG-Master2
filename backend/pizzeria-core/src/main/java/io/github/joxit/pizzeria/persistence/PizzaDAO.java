@@ -19,52 +19,51 @@ import java.util.stream.Collectors;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-01
  */
 @Repository
 // For lazy loading
 @Transactional
 public class PizzaDAO {
-    @PersistenceContext
-    private EntityManager em;
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+  @PersistenceContext
+  private EntityManager em;
+  @Autowired
+  private JdbcTemplate jdbcTemplate;
 
-    public List<Pizza> getAll() {
-        CriteriaQuery<Pizza> cq = em.getCriteriaBuilder().createQuery(Pizza.class);
-        cq.select(cq.from(Pizza.class));
-        return em.createQuery(cq).getResultList();
-    }
+  public List<Pizza> getAll() {
+    CriteriaQuery<Pizza> cq = em.getCriteriaBuilder().createQuery(Pizza.class);
+    cq.select(cq.from(Pizza.class));
+    return em.createQuery(cq).getResultList();
+  }
 
-    public List<PizzaEager> getEager() {
-        CriteriaQuery<PizzaEager> cq = em.getCriteriaBuilder().createQuery(PizzaEager.class);
-        cq.select(cq.from(PizzaEager.class));
-        return em.createQuery(cq).getResultList();
-    }
+  public List<PizzaEager> getEager() {
+    CriteriaQuery<PizzaEager> cq = em.getCriteriaBuilder().createQuery(PizzaEager.class);
+    cq.select(cq.from(PizzaEager.class));
+    return em.createQuery(cq).getResultList();
+  }
 
-    public List<PizzaCustom> getCustom() {
-        return jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
-            PizzaCustom p = new PizzaCustom();
-            p.setName(rs.getString("p.name"));
-            p.setPrix(rs.getFloat("p.prix"));
-            String iName = rs.getString("i.name");
-            if (iName != null) {
-                Ingredient i = new Ingredient();
-                i.setName(iName);
-                i.setPrix(rs.getFloat("i.prix"));
-                p.setIngredients(Lists.newArrayList(i));
-            } else {
-                p.setIngredients(Lists.newArrayList());
-            }
-            return new SimpleImmutableEntry<>(p.getName(), p);
-        }).stream().collect(Collectors.toMap(SimpleImmutableEntry::getKey, SimpleImmutableEntry::getValue, (p1, p2) -> {
-            p1.getIngredients().addAll(p2.getIngredients());
-            return p1;
-        })).values().stream().collect(Collectors.toList());
-    }
+  public List<PizzaCustom> getCustom() {
+    return jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
+      PizzaCustom p = new PizzaCustom();
+      p.setName(rs.getString("p.name"));
+      p.setPrix(rs.getFloat("p.prix"));
+      String iName = rs.getString("i.name");
+      if (iName != null) {
+        Ingredient i = new Ingredient();
+        i.setName(iName);
+        i.setPrix(rs.getFloat("i.prix"));
+        p.setIngredients(Lists.newArrayList(i));
+      } else {
+        p.setIngredients(Lists.newArrayList());
+      }
+      return new SimpleImmutableEntry<>(p.getName(), p);
+    }).stream().collect(Collectors.toMap(SimpleImmutableEntry::getKey, SimpleImmutableEntry::getValue, (p1, p2) -> {
+      p1.getIngredients().addAll(p2.getIngredients());
+      return p1;
+    })).values().stream().collect(Collectors.toList());
+  }
 
-    public Pizza get(String name) {
-        return em.find(Pizza.class, name);
-    }
+  public Pizza get(String name) {
+    return em.find(Pizza.class, name);
+  }
 }

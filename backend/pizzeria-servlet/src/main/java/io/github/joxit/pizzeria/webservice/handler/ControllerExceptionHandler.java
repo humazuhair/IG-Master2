@@ -14,29 +14,29 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class ControllerExceptionHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
-    @ExceptionHandler(HandledException.class)
-    public ResponseEntity<JSONError> handledException(HandledException e) {
-        LOGGER.warn(e.getMessage());
-        return new ResponseEntity<>(new JSONError(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
+  @ExceptionHandler(HandledException.class)
+  public ResponseEntity<JSONError> handledException(HandledException e) {
+    LOGGER.warn(e.getMessage());
+    return new ResponseEntity<>(new JSONError(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
+  }
+
+  private class JSONError {
+    private int status;
+    private String message;
+
+    private JSONError(HttpStatus httpStatus, String message) {
+      this.status = httpStatus.value();
+      this.message = message;
     }
 
-    private class JSONError {
-        private int status;
-        private String message;
-
-        private JSONError(HttpStatus httpStatus, String message) {
-            this.status = httpStatus.value();
-            this.message = message;
-        }
-
-        public int getStatus() {
-            return status;
-        }
-
-        public String getMessage() {
-            return message;
-        }
+    public int getStatus() {
+      return status;
     }
+
+    public String getMessage() {
+      return message;
+    }
+  }
 }

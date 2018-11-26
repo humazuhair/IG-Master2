@@ -5,7 +5,6 @@ import javax.persistence.Table;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-01
  */
 @Entity

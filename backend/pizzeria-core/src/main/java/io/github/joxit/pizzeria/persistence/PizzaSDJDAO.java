@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories
-public interface PizzaSDJDAO  extends JpaRepository<Pizza, String> {
+public interface PizzaSDJDAO extends JpaRepository<Pizza, String> {
 
 }

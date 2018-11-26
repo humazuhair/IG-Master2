@@ -9,17 +9,16 @@ import javax.persistence.PersistenceContext;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-02
  */
 @Repository
 // For lazy loading
 @Transactional
 public class StockDAO {
-    @PersistenceContext
-    private EntityManager em;
+  @PersistenceContext
+  private EntityManager em;
 
-    public <T extends Stock> void updateStock(T stock) {
-        em.merge(stock);
-    }
+  public <T extends Stock> void updateStock(T stock) {
+    em.merge(stock);
+  }
 }

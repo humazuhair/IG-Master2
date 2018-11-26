@@ -16,26 +16,25 @@ import java.util.List;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-02
  */
 @RestController
 @CrossOrigin
 @RequestMapping({"/api", "/api/"})
 public class PizzaWebService {
-    private static Logger LOGGER = LoggerFactory.getLogger(PizzaWebService.class);
-    @Autowired
-    private PizzeriaService pizzeriaService;
+  private static Logger LOGGER = LoggerFactory.getLogger(PizzaWebService.class);
+  @Autowired
+  private PizzeriaService pizzeriaService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<PizzaDTO> getPizzeria(@QueryParam("type") String type) {
-        LOGGER.info("getPizzeria");
-        return pizzeriaService.getAll(type);
-    }
+  @RequestMapping(method = RequestMethod.GET)
+  public List<PizzaDTO> getPizzeria(@QueryParam("type") String type) {
+    LOGGER.info("getPizzeria");
+    return pizzeriaService.getAll(type);
+  }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/reactive")
-    public Flux<PizzaDTO> getReactivePizzeria(@QueryParam("type") String type) {
-        LOGGER.info("getReactivePizzeria");
-        return Flux.fromStream(pizzeriaService.getAll(type).stream());
-    }
+  @RequestMapping(method = RequestMethod.GET, path = "/reactive")
+  public Flux<PizzaDTO> getReactivePizzeria(@QueryParam("type") String type) {
+    LOGGER.info("getReactivePizzeria");
+    return Flux.fromStream(pizzeriaService.getAll(type).stream());
+  }
 }

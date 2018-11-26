@@ -8,13 +8,12 @@ import java.util.Collection;
 
 /**
  * @author Jones Magloire @Joxit
- *
  * @since 2017-11-01
  */
 @Entity
 @Table
 public class Ingredient extends Stockable {
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
-    private Collection<Pizza> pizzas;
+  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ingredients")
+  private Collection<Pizza> pizzas;
 }
