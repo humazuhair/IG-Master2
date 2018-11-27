@@ -32,7 +32,7 @@
           <a href="https://github.com/Joxit/IG-Master2">Projet sur GitHub</a>
         </li>
         <li>
-          <a href="https://github.com/Joxit/IG-Master2/beamer">Cours pour l'Institut Galilée</a>
+          <a href="https://github.com/Joxit/IG-Master2/tree/master/beamer">Cours pour l'Institut Galilée</a>
         </li>
       </ul>
 

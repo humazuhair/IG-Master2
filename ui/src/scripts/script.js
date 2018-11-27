@@ -52,4 +52,6 @@ pizzeria.decodeURI = function(url) {
 
 pizzeria.catalog = {};
 
-riot.mount('*');
+window.addEventListener('DOMContentLoaded', function() {
+  riot.mount('*');
+});
