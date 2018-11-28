@@ -11,5 +11,6 @@ dependencies {
   compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
   compile group: 'mysql', name: 'mysql-connector-java', version: "${mysqlVersion}"
   compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.7.Final'
+  compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
 }
 
