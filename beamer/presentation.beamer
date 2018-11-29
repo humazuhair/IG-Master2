@@ -175,6 +175,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 \item Vert.x (framework événementiel par la fondation Eclipse)
 \item Netty (framework non-blocking I/O par Netty Project Community)
 \item Spring Framework et Spring Boot
+\item Ktor (framwork asynchrone designé pour Kotlin)
 \end{itemize}
 
 \end{card}
@@ -204,6 +205,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 - Hackathons
 - Tech nights
 - 1 Conf offerte / an (Devoxx, Droidcon, Paris Container Day...)
-- Billard
+- 1 Billard en interne
+- 1 Nintendo Switch
 
 \End{cardTiny}

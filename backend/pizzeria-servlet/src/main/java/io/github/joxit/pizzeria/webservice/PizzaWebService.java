@@ -35,6 +35,6 @@ public class PizzaWebService {
   @RequestMapping(method = RequestMethod.GET, path = "/reactive")
   public Flux<PizzaDTO> getReactivePizzeria(@QueryParam("type") String type) {
     LOGGER.info("getReactivePizzeria");
-    return Flux.fromStream(pizzeriaService.getAll(type).stream());
+    return Flux.fromIterable(pizzeriaService.getAll(type));
   }
 }
