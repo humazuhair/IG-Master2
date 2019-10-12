@@ -1,7 +1,9 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+
 buildscript {
   extra.apply {
-    set("springVersion", "5.1.2.RELEASE")
-    set("mysqlVersion", "8.0.13")
+    set("springVersion", "5.2.0.RELEASE")
+    set("mysqlVersion", "8.0.17")
   }
 }
 
@@ -9,6 +11,20 @@ plugins {
   java
   maven
   id("idea")
+  id("com.github.ben-manes.versions") version "0.26.0"
+}
+
+fun isNonStable(version: String): Boolean {
+  val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+  val regex = "^[0-9,\\.v\\-]+(-r)?$".toRegex()
+  val isStable = stableKeyword || regex.matches(version)
+  return isStable.not()
+}
+
+tasks.dependencyUpdates {
+  rejectVersionIf {
+    isNonStable(candidate.version)
+  }
 }
 
 allprojects {
