@@ -1,19 +1,16 @@
 ---
 title: Introduction à Spring et Hibernate
-subtitle: Institut Galilée - Master 2 EDI² et PLS
+subtitle: Institut Galilée - Master 2 PLS
 author: Jones Magloire
-date: 03 Décembre 2018
+date: 21 Octobre 2019
 theme: material
 toc: true
-header-includes:
-  - \newcommand{\hideFromPandoc}[1]{#1}
-  - \usepackage{fourier}
-  - \hideFromPandoc{ \let\Begin\begin \let\End\end }
-  - \hideFromPandoc{ \let\CardB\begin \let\CardE\end }
-  # - \useDarkTheme
-  - \usePrimaryBlueGrey \useAccentBlue
-  # - '\usePrimary{4527A0}{311B92}{FFFFFF}'
-  # - '\useAccent{C6FF00}{000000}'
+header-includes: |
+  \newcommand{\hideFromPandoc}[1]{#1}
+  \usepackage{fourier}
+  \hideFromPandoc{ \let\Begin\begin \let\End\end }
+  \hideFromPandoc{ \let\CardB\begin \let\CardE\end }
+  \usePrimaryBlueGrey \useAccentBlue
 build: pandoc -st beamer presentation.beamer -o presentation.pdf
 ---
 
@@ -187,11 +184,10 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 - 2 mois de formation
     - 1 semaine en piscine (JEE stack)
     - Projet incrémental
-        - Java 11 (Stream API, Lambdas…), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Criteria, QueryDSL, Jax-WS, Jax-RS, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular.js
+        - Java 13, Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular
         - 1 semaine DevOPS
         - 1 jour sur la performance + tunning
-    - Conférences techniques (JVM, Spring, ORMs)
-    - Formations annexes: Git, React.js, Android, Gatling, Agilité
+    - Conférences et formations JVM, Spring, Git, React.js, Gatling, Agilité, REST
     - Certifications Oracle Certified Java Programmer Associate & Professional
 - 4 mois sur un projet interne
 
@@ -201,11 +197,10 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \Begin{cardTiny}
 
-- Séminaires (Vendredi, Samedi, Dimanche)
+- Séminaires (Samedi, Dimanche, Lundi)
 - Hackathons
-- Tech nights
-- 1 Conf offerte / an (Devoxx, Droidcon, Paris Container Day...)
-- 1 Billard en interne
-- 1 Nintendo Switch
+- Meetups interne
+- Billard en interne
+- Nintendo Switch
 
 \End{cardTiny}
