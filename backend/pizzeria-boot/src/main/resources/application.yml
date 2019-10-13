@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true
+    username: pizzaiolo
+    password: PizzaioloDePizzaHut

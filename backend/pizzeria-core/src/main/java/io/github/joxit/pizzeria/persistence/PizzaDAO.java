@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.AbstractMap.SimpleImmutableEntry;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +44,7 @@ public class PizzaDAO {
   }
 
   public List<PizzaCustom> getCustom() {
-    return jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
+    return new ArrayList<>(jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
       PizzaCustom p = new PizzaCustom();
       p.setName(rs.getString("p.name"));
       p.setPrix(rs.getFloat("p.prix"));
@@ -60,7 +61,7 @@ public class PizzaDAO {
     }).stream().collect(Collectors.toMap(SimpleImmutableEntry::getKey, SimpleImmutableEntry::getValue, (p1, p2) -> {
       p1.getIngredients().addAll(p2.getIngredients());
       return p1;
-    })).values().stream().collect(Collectors.toList());
+    })).values());
   }
 
   public Pizza get(String name) {
