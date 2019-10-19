@@ -26,7 +26,7 @@
   </main>
   <footer>
     <material-footer>
-      <a class="material-footer-logo" href="https://github.com/Joxit/IG-Master2/ui">Pizzeria UI</a>
+      <a class="material-footer-logo" href="https://joxit.dev/IG-Master2/ui/">Pizzeria UI</a>
       <ul class="material-footer-link-list">
         <li>
           <a href="https://github.com/Joxit/IG-Master2">Projet sur GitHub</a>
