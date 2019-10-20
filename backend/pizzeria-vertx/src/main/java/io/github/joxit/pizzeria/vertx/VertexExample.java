@@ -5,6 +5,7 @@ import io.netty.util.ResourceLeakDetector;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
+import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.EventBus;
@@ -105,13 +106,13 @@ public class VertexExample {
     // Scale the verticles on cores
     int cores = Runtime.getRuntime().availableProcessors();
     DeploymentOptions options = new DeploymentOptions().setInstances(cores);
-    Future<String> future = Future.future();
-    futures.add(future);
-    vertx.deployVerticle(verticleFactory.prefix() + ":" + HttpServerVerticle.class.getName(), options, future.completer());
+    Promise<String> promise = Promise.promise();
+    futures.add(promise.future());
+    vertx.deployVerticle(verticleFactory.prefix() + ":" + HttpServerVerticle.class.getName(), options, promise);
 
-    future = Future.future();
-    futures.add(future);
-    vertx.deployVerticle(verticleFactory.prefix() + ":" + PizzaVerticle.class.getName(), future.completer());
+    promise = Promise.promise();
+    futures.add(promise.future());
+    vertx.deployVerticle(verticleFactory.prefix() + ":" + PizzaVerticle.class.getName(), promise);
 
     eventBus.registerDefaultCodec(ArrayList.class, ObjectMessageCodec.of(ArrayList.class));
 

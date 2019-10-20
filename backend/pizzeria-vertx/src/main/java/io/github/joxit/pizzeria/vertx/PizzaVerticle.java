@@ -4,6 +4,7 @@ package io.github.joxit.pizzeria.vertx;
 import io.github.joxit.pizzeria.service.PizzeriaService;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
+import io.vertx.core.Promise;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.Message;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ public class PizzaVerticle extends AbstractVerticle {
   private PizzeriaService pizzeriaService;
 
   @Override
-  public void start(Future<Void> startFuture) throws Exception {
+  public void start(Promise<Void> startFuture) {
     LOGGER.info("Start Pizza Verticle");
     EventBus eb = vertx.eventBus();
     eb.localConsumer(name, this::handle);

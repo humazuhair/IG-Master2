@@ -22,7 +22,7 @@ public class ControllerExceptionHandler {
     return new ResponseEntity<>(new JSONError(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
   }
 
-  private class JSONError {
+  private static class JSONError {
     private int status;
     private String message;
 

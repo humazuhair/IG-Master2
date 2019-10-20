@@ -4,7 +4,7 @@ import io.github.joxit.pizzeria.dto.PizzaDTO;
 import io.github.joxit.pizzeria.exception.HandledException;
 import io.github.joxit.pizzeria.service.PizzeriaService;
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Future;
+import io.vertx.core.Promise;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpMethod;
@@ -20,6 +20,7 @@ import io.vertx.ext.web.handler.TimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -33,12 +34,14 @@ public class HttpServerVerticle extends AbstractVerticle {
   private static final Logger LOGGER = LoggerFactory.getLogger(PizzaVerticle.class);
 
   private static final long TIMEOUT = 30000;
+  @Value("${server.port:8080}")
+  private int port;
 
   @Autowired
   private PizzeriaService pizzeriaService;
 
   @Override
-  public void start(Future<Void> startFuture) throws Exception {
+  public void start(Promise<Void> startFuture) {
     LOGGER.info("Start Http Server Verticle");
     Router router = Router.router(vertx);
 
@@ -72,10 +75,10 @@ public class HttpServerVerticle extends AbstractVerticle {
 
     HttpServerOptions options = new HttpServerOptions()
         .setHost("0.0.0.0")
-        .setPort(8081);
+        .setPort(port);
 
     vertx.createHttpServer(options)
-        .requestHandler(router::accept)
+        .requestHandler(router)
         .listen(res -> {
           if (res.succeeded()) {
             LOGGER.info("Vertex node started");
@@ -102,7 +105,7 @@ public class HttpServerVerticle extends AbstractVerticle {
 
     EventBus eb = ctx.vertx().eventBus();
 
-    eb.<List<PizzaDTO>>send(PizzaVerticle.name, request.getParam("type"), ar -> {
+    eb.<List<PizzaDTO>>request(PizzaVerticle.name, request.getParam("type"), ar -> {
       if (ar.failed()) {
         LOGGER.error("Error in pizzeria", ar.cause());
         ctx.fail(500);
