@@ -13,6 +13,8 @@ header-includes: |
   \metroset{block=fill}
   \newcommand{\sectionimage}{Foo}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
+  \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
+  \usepackage{dirtytalk}
 build: pandoc -st beamer presentation.beamer -o presentation.pdf
 ---
 
@@ -36,22 +38,28 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 ## Qu'est-ce que JEE ?
 
-- Plusieurs type de serveur
-  - Serveur d'application (Glassfish, WildFly...)
-  - Conteneur de servlets (Tomcat, Jetty, WebSphere...)
+\begin{block}{Plusieurs type de serveur}
+  \begin{itemize}
+    \item Serveur d'application (Glassfish, WildFly...)
+    \item Conteneur de servlets (Tomcat, Jetty, WebSphere...)
+  \end{itemize}
+\end{block}
 
-\vspace{1em}
-
-- Implémentation des spécifications
-  - Spring Framwork et ses modules
-    - Spring JDBC (implémente JDBC)
-    - Spring ORM (binding hibernate et JPA)
-    - Spring Web et WebMVC (implémentent servlet)
-  - Hibernate ORM (JPA)
+\begin{block}{Implémentation des spécifications}
+  \begin{itemize}
+    \item Spring Framwork et ses modules
+    \begin{itemize}
+        \item Spring JDBC (implémente JDBC)
+        \item Spring ORM (binding hibernate et JPA)
+        \item Spring Web et WebMVC (implémentent servlet)
+    \end{itemize}
+    \item Hibernate ORM (JPA)
+  \end{itemize}
+\end{block}
 
 ## JEE{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge{\href{https://servlet.joxit.dev/}{Démo}}
 
 # Pourquoi Hibernate ?
 
@@ -63,7 +71,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
   \begin{itemize}
     \item Classe Java $\Leftrightarrow$ Table SQL (Entity)
     \item Transactions (JTA)
-    \item Création des tables au démarage
+    \item Création des tables au démarrage
     \item Lazy loading
     \item Gestion des sessions à la DB
     \item Cache
@@ -72,7 +80,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 ## Hibernate{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge{\href{http://127.0.0.1:8080?type=lazy}{Démo}}
 
 ## Avantages et Inconvéniants
 
@@ -115,7 +123,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 ## Spring Framework{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/ui/?url=https://servlet.joxit.dev/api}{Démo}}
 
 # Spring vs Spring Boot ?
 
@@ -136,7 +144,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 ## Spring Boot{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/ui/?url=https://boot.joxit.dev/api}{Démo}}
 
 # Qu'est-ce que ~~Maven~~ Gradle ?
 
@@ -154,9 +162,9 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 ## Gradle{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge{\href{https://github.com/Joxit/IG-Master2/commit/a77b03c0496a31a3fabbcf9d873f45bc909ac9a2}{Démo}}
 
-# Reactive APIs?
+# Reactive Programming ?
 
 ----
 
@@ -173,7 +181,7 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 
 \begin{block}{Modèle réactif}
   \begin{itemize}
-    \item Des requêtes, des "workers"
+    \item Des requêtes sur des \say{workers}
     \item Optimiser l’activité du thread plutôt que le nombre de threads
     \item Opérations non blocantes
   \end{itemize}
@@ -199,15 +207,23 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
   \end{itemize}
 \end{block}
 
+## Vert.x{.standout}
+
+\centering\Huge{Démo}
+
+## Introduction à Spring et Hibernate{.standout}
+
+\centering\Huge{Questions ?}
+
 ## Stage takima
 
 - 2 mois de formation
     - 1 semaine en piscine (JEE stack)
     - Projet incrémental
-        - Java 13, Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular
+        - Java 11 (LTS), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular
         - 1 semaine DevOPS
         - 1 jour sur la performance + tunning
-    - Conférences et formations JVM, Spring, Git, React.js, Gatling, Agilité, REST
+    - Conférences et formations JVM, Spring, Hibernate, Git, React.js, Gatling, Agilité, REST
     - Certifications Oracle Certified Java Programmer Associate & Professional
 - 4 mois sur un projet interne
 
@@ -218,7 +234,3 @@ build: pandoc -st beamer presentation.beamer -o presentation.pdf
 - Meetups interne
 - Billard en interne
 - Nintendo Switch
-
-## Introduction à Spring et Hibernate{.standout}
-
-\centering\Huge{Questions ?}

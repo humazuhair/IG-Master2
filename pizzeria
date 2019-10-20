@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+DIR=$(pwd)
+if [ "$1" = "servlet" ]; then
+  cd backend
+  ./gradlew clean :pizzeria-servlet:build
+  cd $DIR
+  docker-compose build servlet
+  docker-compose up servlet
+fi
