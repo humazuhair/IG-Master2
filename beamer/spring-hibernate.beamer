@@ -15,7 +15,7 @@ header-includes: |
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -st beamer presentation.beamer -o presentation.pdf
+build: pandoc -st beamer spring-hibernate.beamer -o introduction-spring-hibernate.pdf
 ---
 
 # Qu'est-ce que JEE ?
