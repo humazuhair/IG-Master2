@@ -1,0 +1,19 @@
+---
+title: La cartographie avec OpenStreetMap
+subtitle: Institut Galilée - Master 2 PLS
+author: Jones Magloire
+date: 02 Décembre 2019
+theme: metropolis
+toc: true
+section-titles: false
+header-includes: |
+  \newcommand{\hideFromPandoc}[1]{#1}
+  \usepackage{fourier}
+  \hideFromPandoc{ \let\Begin\begin \let\End\end }
+  \metroset{block=fill}
+  \newcommand{\sectionimage}{Foo}
+  \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
+  \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
+  \usepackage{dirtytalk}
+build: pandoc -st beamer openstreetmap.beamer -o introduction-openstreetmap.pdf
+---
