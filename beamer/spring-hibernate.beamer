@@ -12,10 +12,11 @@ header-includes: |
   \hideFromPandoc{ \let\Begin\begin \let\End\end }
   \metroset{block=fill}
   \newcommand{\sectionimage}{Foo}
+  \newcommand{\imagedirectory}{spring-hibernate-images}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -st beamer spring-hibernate.beamer -o introduction-spring-hibernate.pdf
+build: pandoc -st beamer spring-hibernate.beamer -o spring-hibernate.pdf
 ---
 
 # Qu'est-ce que JEE ?
