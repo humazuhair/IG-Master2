@@ -12,8 +12,19 @@ header-includes: |
   \hideFromPandoc{ \let\Begin\begin \let\End\end }
   \metroset{block=fill}
   \newcommand{\sectionimage}{Foo}
+  \newcommand{\imagedirectory}{openstreetmap-images}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -st beamer openstreetmap.beamer -o introduction-openstreetmap.pdf
+build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 ---
+
+# OSM
+
+---
+
+## OSM
+
+- Fondé en 2004
+- Projet collaboratif
+- Fondation à but non lucratif
