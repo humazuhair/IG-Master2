@@ -23,8 +23,79 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ---
 
-## OSM
+## OpenStreetMap
 
+- Projet de cartographie
 - Fondé en 2004
 - Projet collaboratif
 - Fondation à but non lucratif
+
+## La donnée OSM
+
+- Node/Way/Relation
+- Tags clé/valeur
+- Distribué au format XML/PBF
+- Parution complète hebdomadaire => <http://planet.osm.org>
+- Changements toutes les minutes/heures/jours => <http://planet.osm.org/replication>
+- Open Database License (ODbL)
+
+## La carte OSM
+
+- Fond de carte par défaut => <https://osm.org>
+- Éditable via iD (osm.org), JOSM (desktop), OSM Contributors (Android), Vespucci (Android)...
+- Un wiki dédié => <https://wiki.osm.org/>
+- Attributions obligatoires `© les contributeurs d’OpenStreetMap`
+
+## Les providers OSM
+
+- **Jawg**Maps (France)
+- Mapbox (USA)
+- Carto (USA)
+- Geofabrik (Allemagne)
+- Stamen (USA)
+- Thunderforest (USA)
+- **map**tiler/OpenMapTiles (Suisse)
+
+# Qu'est-ce qu'une carte ?
+
+## Qu'est-ce qu'une carte ?
+
+\begin{block}{Composition}
+  \begin{itemize}
+    \item De la donnée géocontextualisée
+    \item Node => Noms Villes/Pays, POIs (Point Of Interest), Numéros de rues, Arbres...
+    \item Lignes => Routes, Rivières, Frontières...
+    \item Polygons => Bâtiments, Fleuves/Lacs, Forêts, Frontières
+  \end{itemize}
+\end{block}
+
+\begin{block}{Affichage}
+  \begin{itemize}
+    \item Rendu différent pour chaque type d'élément
+    \item Utilisation de \say{tuiles} raster ou vectorielle
+  \end{itemize}
+\end{block}
+
+## Qu'est-ce qu'une carte ?
+
+\includegraphics[width=\textwidth,keepaspectratio]{./openstreetmap-images/tiles-3d.png}
+
+## Les services cartographiques
+
+- Fond de carte (personalisé ou non, flux WMTS ou WMS)
+- Geocoding (Nom de ville <=> coordonnées)
+- Routing (Route de A à B)
+- Élevation (Altitude d'un point ou d'une série de points)
+- Système d'information géographique (SIG)
+
+# Let's try
+
+## Création d'un serveur de tuiles
+
+- Format de l'API: `/{z}/{x}/{y}.png`
+- Mode simplifié: SVG du monde => png
+- Base de code disponible => <https://github.com/Joxit/IG-Master2>
+- Zoom 0: $2^0 = 1$ tuile 256x256
+- Zoom 1: $2^2 = 4$ tuiles
+- Zoom 2: $2^4 = 16$ tuiles
+- Zoom n: $2^{2n}$ tuiles
