@@ -16,8 +16,8 @@ services:
     networks:
       - pizzeria
 
-  servlet:
-    build: ./backend/pizzeria-servlet
+  pizzeria-servlet:
+    build: ./pizzeria/pizzeria-servlet
     image: ig-master/pizzeria:servlet
     ports:
       - 127.0.0.1:8080:8080
@@ -27,8 +27,8 @@ services:
       - pizzeria
     depends_on:
       - mysql-db
-  vertx:
-    build: ./backend/pizzeria-vertx
+  pizzeria-vertx:
+    build: ./pizzeria/pizzeria-vertx
     image: ig-master/pizzeria:vertx
     ports:
       - 127.0.0.1:8081:8081
@@ -37,8 +37,8 @@ services:
       JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
     networks:
       - pizzeria
-  boot:
-    build: ./backend/pizzeria-boot
+  pizzeria-boot:
+    build: ./pizzeria/pizzeria-boot
     image: ig-master/pizzeria:boot
     ports:
       - 127.0.0.1:8082:8082
@@ -47,8 +47,8 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
     networks:
       - pizzeria
-  webflux:
-    build: ./backend/pizzeria-webflux
+  pizzeria-webflux:
+    build: ./pizzeria/pizzeria-webflux
     image: ig-master/pizzeria:webflux
     ports:
       - 127.0.0.1:8083:8083
@@ -57,12 +57,10 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
     networks:
       - pizzeria
-  ui:
+  pizzeria-ui:
     build:
-      context: ./ui
+      context: ./pizzeria/pizzeria-ui
       dockerfile: Dockerfile.builder
     image: ig-master/pizzeria-ui
     ports:
       - 80:80
-    depends_on:
-      - mysql-db
