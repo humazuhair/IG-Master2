@@ -99,3 +99,17 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 - Zoom 1: $2^2 = 4$ tuiles
 - Zoom 2: $2^4 = 16$ tuiles
 - Zoom n: $2^{2n}$ tuiles
+
+## Création d'un serveur de tuiles{.standout}
+
+\centering\Huge{Live Coding!!!}
+
+## Création d'un serveur de POIs
+
+- Doit renvoyer un GeoJSON correctement formé: https://geojson.org/
+- Éléments simples (`FeatureCollection` de `Points`)
+- Ajout des éléments sur la carte
+
+## Création d'un serveur de POIs{.standout}
+
+\centering\Huge{Live Coding!!!}
