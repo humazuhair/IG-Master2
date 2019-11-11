@@ -15,6 +15,14 @@ Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponibl
   3. Utilisez votre Service créé juste avant dans votre controlleur.
   4. Faites de la validation sur les tuiles dans votre Service. Hint: `IllegalArgumentException`, nombres négatifs, valeurs de x et y trop grands, z ne doit pas dépasser 24.
   5. Renvoyez des codes d'erreur 400 avec votre validation. Hint: `ControllerAdvice`, `ExceptionHandler`.
-  6. Bonus: Utilisez un cache pour ne pas a avoir à générer les tuiles à chaque fois
+  6. Bonus: Utilisez un cache pour ne pas a avoir à générer les tuiles à chaque fois.
+  7. Démarrez votre serveur de tuiles. Hint: Il écoutera sur le port 8080, <http://127.0.0.1:8080/0/0/0.png> devrait fonctionner.
 
 Maintenant vous avez toutes les fonctionnalités de base d'un serveur de tuiles. Maintenant il faut pouvoir l'afficher, pour cela il faut page web qui pourra afficher votre carte.
+
+## Afficher une carte
+
+Pour cela, nous allons utiliser une librairie nommé [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/), il y a d'autres alternatives comme [Leaflet](https://leafletjs.com/).
+
+  1. Ajoutez une source raster à votre carte. Hint: [exemple](https://docs.mapbox.com/mapbox-gl-js/example/map-tiles/), `tiles: ["http://127.0.0.1:8080/{z}/{x}/{y}.png"]`, vous pouvez enlever les attributions pour le moment.
+  2. Ouvrez votre index.html dans votre navigateur, voilà vos tuiles!
