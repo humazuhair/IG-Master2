@@ -26,3 +26,15 @@ Pour cela, nous allons utiliser une librairie nommé [Mapbox GL JS](https://docs
 
   1. Ajoutez une source raster à votre carte. Hint: [exemple](https://docs.mapbox.com/mapbox-gl-js/example/map-tiles/), `tiles: ["http://127.0.0.1:8080/{z}/{x}/{y}.png"]`, vous pouvez enlever les attributions pour le moment.
   2. Ouvrez votre index.html dans votre navigateur, voilà vos tuiles!
+
+## Ajouter des points
+
+Maintenant nous allons ajouter des points à la carte. Nous avons à disposition la liste des préféctures de France au format GeoJSON. Le but sera de renvoyer cette liste via notre API de tuiles.
+
+  1. Créez un endpoint pour servire le GeoJSON. Hint: `TileWebService`.
+  2. Ajoutez le code pour récuperer le GeoJSON des resources. Hint: Vous pouvez vous inspirer de `Svg` ou utilisez `@Value` de Spring, faites tout cela dans `TileService`.
+  3. Utilisez votre Service dans votre Controlleur.
+  4. Ajoutez une source `prefecture` à votre `map`. Hint: [example](https://docs.mapbox.com/mapbox-gl-js/example/multiple-geometries/), l'url pour `data` sera celui de votre endpoint.
+  5. Appliquez un layer de type [`circle`](https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-circle) qui décrit le style de votre point.
+  6. Bonus: Créez une persistence pour vos points avec une base de données pour les récuperer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
+  7. Bonus: Vous devez renvoyer un GeoJSON, vous avez plusieurs solutions, soit récuperer du GeoJSON via [PostgreSQL/PostGIS](https://postgis.net/docs/ST_AsGeoJSON.html), soit utiliser une [librairie GeoJSON](https://github.com/ngageoint/simple-features-geojson-java)
