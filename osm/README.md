@@ -38,3 +38,13 @@ Maintenant nous allons ajouter des points à la carte. Nous avons à disposition
   5. Appliquez un layer de type [`circle`](https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-circle) qui décrit le style de votre point.
   6. Bonus: Créez une persistence pour vos points avec une base de données pour les récuperer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
   7. Bonus: Vous devez renvoyer un GeoJSON, vous avez plusieurs solutions, soit récuperer du GeoJSON via [PostgreSQL/PostGIS](https://postgis.net/docs/ST_AsGeoJSON.html), soit utiliser une [librairie GeoJSON](https://github.com/ngageoint/simple-features-geojson-java)
+
+## Ajout d'une source de tuiles vectorielles
+
+C'est la partie placement de produit, vous avez déjà une carte, pas très fournie... Maintenant on va voir une vraie carte avec de la donnée beaucoup plus précise que le SVG.
+
+  1. Créez vous un compte sur le [**Jawg**Lab](https://jawg.io/lab). Hint: visitez aussi le [site web](https://jawg.io) pour voir ce qu'on fait, il y a des démos.
+  2. Allez dans la section Gestion des Styles, vous pouvez un créer un ou en prendre un par défaut. Hint: Essayez `jawg-terrain` avec le bouton utiliser.
+  3. Replacez votre style raster par celui-ci. Hint: Le lient est dans l'onglet MapboxGL.
+  4. Voilà, vous avez votre carte avec un magnifique style ;)
+  5. Bonus: Modifiez le style récupéré avec le lab ou à la main pour créer votre plus belle carte.
