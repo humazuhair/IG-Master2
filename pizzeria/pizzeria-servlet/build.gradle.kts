@@ -15,7 +15,7 @@ dependencies {
   implementation("org.springframework:spring-webflux:${project.rootProject.ext["springVersion"]}")
   implementation("javax:javaee-api:8.0.1")
   implementation("jstl:jstl:1.2")
-  implementation("com.fasterxml.jackson.core:jackson-databind:2.10.0")
+  implementation("com.fasterxml.jackson.core:jackson-databind:2.10.1")
   compileOnly("javax.servlet:javax.servlet-api:4.0.1")
-  compileOnly("org.apache.tomcat.embed:tomcat-embed-core:9.0.27")
+  compileOnly("org.apache.tomcat.embed:tomcat-embed-core:9.0.29")
 }

@@ -4,14 +4,14 @@ plugins {
   java
   maven
   id("idea")
-  id("com.github.ben-manes.versions") version "0.26.0"
-  kotlin("jvm") version "1.3.50" apply false
-  id("org.jetbrains.kotlin.plugin.spring") version "1.3.50" apply false
+  id("com.github.ben-manes.versions") version "0.27.0"
+  kotlin("jvm") version "1.3.60" apply false
+  id("org.jetbrains.kotlin.plugin.spring") version "1.3.60" apply false
 }
 
 buildscript {
   extra.apply {
-    set("springVersion", "5.2.0.RELEASE")
+    set("springVersion", "5.2.1.RELEASE")
   }
 }
 fun isNonStable(version: String): Boolean {
