@@ -94,7 +94,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 - Format de l'API: `/{z}/{x}/{y}.png`
 - Mode simplifié: SVG du monde => png
-- Base de code disponible => <https://github.com/Joxit/IG-Master2>
+- Base de code disponible => <https://github.com/Joxit/IG-Master2/osm>
 - Zoom 0: $2^0 = 1$ tuile 256x256
 - Zoom 1: $2^2 = 4$ tuiles
 - Zoom 2: $2^4 = 16$ tuiles
@@ -104,12 +104,33 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \centering\Huge{Live Coding!!!}
 
+## Affichage d'une carte
+
+- Utilisation de Mapbox GL JS
+- Source Raster (png)
+- Un fichier `index.html` static
+
+## Affichage d'une carte{.standout}
+
+\centering\Huge{Live Coding!!!}
+
 ## Création d'un serveur de POIs
 
-- Doit renvoyer un GeoJSON correctement formé: https://geojson.org/
+- Doit renvoyer un GeoJSON correctement formé: <https://geojson.org/>
 - Éléments simples (`FeatureCollection` de `Points`)
-- Ajout des éléments sur la carte
+- Exemple de donnée disponible => <https://github.com/Joxit/IG-Master2/osm/osm-core/src/main/resources/>
+- Renvoyer les données via votre API
+- Ajout les éléments sur la carte
 
 ## Création d'un serveur de POIs{.standout}
+
+\centering\Huge{Live Coding!!!}
+
+## Ajout de tuiles vectorielles
+
+- Création d'un compte sur le lab: <https://jawg.io/lab/>
+- Remplacement du style
+
+## Ajout de tuiles vectorielles{.standout}
 
 \centering\Huge{Live Coding!!!}

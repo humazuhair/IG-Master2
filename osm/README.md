@@ -16,7 +16,8 @@ Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponibl
   4. Faites de la validation sur les tuiles dans votre Service. Hint: `IllegalArgumentException`, nombres négatifs, valeurs de x et y trop grands, z ne doit pas dépasser 24.
   5. Renvoyez des codes d'erreur 400 avec votre validation. Hint: `ControllerAdvice`, `ExceptionHandler`.
   6. Bonus: Utilisez un cache pour ne pas a avoir à générer les tuiles à chaque fois.
-  7. Démarrez votre serveur de tuiles. Hint: Il écoutera sur le port 8080, <http://127.0.0.1:8080/0/0/0.png> devrait fonctionner.
+  7. Bonus: Améliorez le code de la classe `Svg` pour améliorer les perfs. Hint: Attention à l'Input-Output ;).
+  8. Démarrez votre serveur de tuiles. Hint: Il écoutera sur le port 8080, <http://127.0.0.1:8080/0/0/0.png> devrait fonctionner.
 
 Maintenant vous avez toutes les fonctionnalités de base d'un serveur de tuiles. Maintenant il faut pouvoir l'afficher, pour cela il faut page web qui pourra afficher votre carte.
 
