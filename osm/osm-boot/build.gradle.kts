@@ -13,4 +13,5 @@ dependencies {
   compile(project(":osm-core"))
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-configuration-processor:")
+  implementation("mil.nga.sf:sf-geojson:2.0.3")
 }

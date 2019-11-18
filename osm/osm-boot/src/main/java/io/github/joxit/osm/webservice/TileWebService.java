@@ -1,6 +1,6 @@
 package io.github.joxit.osm.webservice;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import mil.nga.sf.geojson.GeoJsonObject;
 
 /**
  * C'est le controlleur de l'application, il faut le déclarer comme tel et activer les CrossOrigin
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class TileWebService {
 
   /**
-   * Cette méthode est le point d'entrée de l'API, il prend les requetes au format `/{z}/{x}/{y}.png`
+   * Cette méthode est le point d'entrée de l'API, il prend les requêtes au format `/{z}/{x}/{y}.png`.
    * Attetion, il doit renvoyer le header Content-Type image/png; voir les MediaType de Spring
    *
    * @param z zoom
@@ -21,6 +21,26 @@ public class TileWebService {
    * @return l'image au format PNG
    */
   public byte[] getTile(int z, int x, int y) {
+    return null;
+  }
+
+  /**
+   * Cette méthode est le point d'entrée des préfectures, il prend les requêtes sur l'entrée `/prefectures.geojson`.
+   * Attention, il doit renvoyer le header Content-Type application/json
+   *
+   * @return String representant le GeoJSON des prefectures
+   */
+  public String getPrefectures() {
+    return null;
+  }
+
+  /**
+   * Cette méthode est le point d'entrée de l'API POIs sous persistence, il prend les requêtes sur l'entrée `/pois.geojson`.
+   * Attention, il doit renvoyer le header Content-Type application/json
+   *
+   * @return le geojson des POIs à renvoyer
+   */
+  public GeoJsonObject getPOIs() {
     return null;
   }
 }
