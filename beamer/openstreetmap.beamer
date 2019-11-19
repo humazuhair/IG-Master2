@@ -94,7 +94,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 - Format de l'API: `/{z}/{x}/{y}.png`
 - Mode simplifié: SVG du monde => png
-- Base de code disponible => <https://github.com/Joxit/IG-Master2/osm>
+- Base de code disponible => <https://github.com/Joxit/IG-Master2/tree/master/osm>
 - Zoom 0: $2^0 = 1$ tuile 256x256
 - Zoom 1: $2^2 = 4$ tuiles
 - Zoom 2: $2^4 = 16$ tuiles
@@ -102,7 +102,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Création d'un serveur de tuiles{.standout}
 
-\centering\Huge{Live Coding!!!}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#le-serveur-de-tuiles}{Live Coding!!!}}
 
 ## Affichage d'une carte
 
@@ -112,19 +112,19 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Affichage d'une carte{.standout}
 
-\centering\Huge{Live Coding!!!}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#afficher-une-carte}{Live Coding!!!}}
 
 ## Création d'un serveur de POIs
 
 - Doit renvoyer un GeoJSON correctement formé: <https://geojson.org/>
 - Éléments simples (`FeatureCollection` de `Points`)
-- Exemple de donnée disponible => <https://github.com/Joxit/IG-Master2/osm/osm-core/src/main/resources/>
+- Exemple de donnée disponible => <https://github.com/Joxit/IG-Master2/tree/master/osm/osm-core/src/main/resources/>
 - Renvoyer les données via votre API
 - Ajout les éléments sur la carte
 
 ## Création d'un serveur de POIs{.standout}
 
-\centering\Huge{Live Coding!!!}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Live Coding!!!}}
 
 ## Ajout de tuiles vectorielles
 
@@ -133,4 +133,4 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Ajout de tuiles vectorielles{.standout}
 
-\centering\Huge{Live Coding!!!}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Live Coding!!!}}
