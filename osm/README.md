@@ -49,3 +49,13 @@ C'est la partie placement de produit, vous avez déjà une carte, pas très four
   3. Replacez votre style raster par celui-ci. Hint: Le lient est dans l'onglet MapboxGL.
   4. Voilà, vous avez votre carte avec un magnifique style ;)
   5. Bonus: Modifiez le style récupéré avec le lab ou à la main pour créer votre plus belle carte.
+
+## Ajout d'un itinéraire
+
+Maintenant on va ajouter le tracé d'un itinéraire sur la carte. Pour cela vous avez plusieurs choix, celui qu'on prend pour le moment sera de cliquer sur la carte pour sélectionner les points. On peut utiliser des combinaisons de touches comme ctrl + click par exemple.
+
+  1. Implémentez la partie d'appel à l'API d'itinéraire. Hint: pour connaître les retours, il y a [la doc](https://www.jawg.io/docs/apidocs/routing/osrm/).
+  2. Ajoutez un listner sur l'objet map de MapboxGL. Hint: pour les listeners il y a également [une doc](https://docs.mapbox.com/mapbox-gl-js/api/).
+  3. Faites l'appel à l'API au second click.
+  4. Ajoutez la réponse de l'API en tant que data source de la carte.
+  5. Ajoutez un style pour afficher l'itinéraire.

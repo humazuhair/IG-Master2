@@ -88,7 +88,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 - Élevation (Altitude d'un point ou d'une série de points)
 - Système d'information géographique (SIG)
 
-# Let's try
+# Création d'un serveur de tuiles
 
 ## Création d'un serveur de tuiles
 
@@ -114,6 +114,8 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#afficher-une-carte}{Live Coding!!!}}
 
+# Création d'un serveur de POIs
+
 ## Création d'un serveur de POIs
 
 - Doit renvoyer un GeoJSON correctement formé: <https://geojson.org/>
@@ -126,6 +128,8 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Live Coding!!!}}
 
+# Ajout de tuiles vectorielles
+
 ## Ajout de tuiles vectorielles
 
 - Création d'un compte sur le lab: <https://jawg.io/lab/>
@@ -134,3 +138,15 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 ## Ajout de tuiles vectorielles{.standout}
 
 \centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Live Coding!!!}}
+
+# Ajout d'un tracé d'itinéraire
+
+## Ajout d'un tracé d'itinéraire
+
+- Appeller l'API d'itinéraire Jawg: <https://www.jawg.io/docs/apidocs/routing/osrm/>
+- Sélectionner le départ et l'arrivé du tracé grâce à des cliques sur la carte
+- Afficher l'itinéraire sur la carte
+
+## Ajout d'un tracé d'itinéraire{.standout}
+
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dun-itineraire}{Live Coding!!!}}
