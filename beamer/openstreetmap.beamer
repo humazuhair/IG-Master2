@@ -71,7 +71,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \begin{block}{Affichage}
   \begin{itemize}
-    \item Rendu différent pour chaque type d'élément
+    \item Rendu différent pour chaque type d'éléments
     \item Utilisation de \say{tuiles} raster ou vectorielle
   \end{itemize}
 \end{block}
@@ -86,7 +86,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 - Geocoding (Nom de ville <=> coordonnées)
 - Routing (Route de A à B)
 - Élevation (Altitude d'un point ou d'une série de points)
-- Système d'information géographique (SIG)
+- Système d'Information Géographique (SIG)
 
 # Création d'un serveur de tuiles
 
@@ -122,7 +122,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 - Éléments simples (`FeatureCollection` de `Points`)
 - Exemple de donnée disponible => <https://github.com/Joxit/IG-Master2/tree/master/osm/osm-core/src/main/resources/>
 - Renvoyer les données via votre API
-- Ajout les éléments sur la carte
+- Ajout des éléments sur la carte
 
 ## Création d'un serveur de POIs{.standout}
 
@@ -149,4 +149,4 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Ajout d'un tracé d'itinéraire{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dun-itineraire}{Live Coding!!!}}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dun-itinéraire}{Live Coding!!!}}
