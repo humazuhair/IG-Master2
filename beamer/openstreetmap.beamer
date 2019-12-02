@@ -150,3 +150,34 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 ## Ajout d'un tracé d'itinéraire{.standout}
 
 \centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dun-itinéraire}{Live Coding!!!}}
+
+\begin{note}
+%# Ajout du geocoding
+
+%## Ajout du geocoding
+
+%- Ajout d'une barre de recherche
+%- Connecter la barre de recherche avec l'API
+%- Quand on clique sur la carte, remplir l'adresse grâce au reverse geocoding
+\end{note}
+
+# Conclusion
+
+## Conclusion
+
+\begin{block}{Implémentations}
+  \begin{itemize}
+    \item Fond de carte
+    \item Service de POIs
+    \item UI pour le fond de carte
+    \item UI pour les POIs
+    \item UI pour l'itinéraire
+    %\item UI pour le géocoding
+  \end{itemize}
+\end{block}
+
+---
+
+## Conclusion {.standout}
+
+\centering\Huge{Question ?}
