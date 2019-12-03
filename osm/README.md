@@ -6,6 +6,11 @@ Comme vous avez pu le voir pendant le cours, il n'est pas simple de gérer la do
 
 La première partie consiste à créer son serveur de tuiles.
 
+## Prérequis
+
+Pour commencer vous devez déjà avoir [IntelliJ Idea Community ou Ultimate](https://www.jetbrains.com/idea/download/#section=linux) d'installé avec Java.
+Vous pouvez utiliser d'autres IDE, mais je ne pourrais pas vous aider... (Non, Atom n'est pas un IDE...)
+
 ## Le serveur de tuiles
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
