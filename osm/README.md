@@ -11,6 +11,12 @@ La première partie consiste à créer son serveur de tuiles.
 Pour commencer vous devez déjà avoir [IntelliJ Idea Community ou Ultimate](https://www.jetbrains.com/idea/download/#section=linux) d'installé avec Java.
 Vous pouvez utiliser d'autres IDE, mais je ne pourrais pas vous aider... (Non, Atom n'est pas un IDE...)
 
+### Récuperer le code
+
+Vous pouvez cloner le projet avec git `git clone https://github.com/Joxit/IG-Master2` ou télécherger le [zip](https://github.com/Joxit/IG-Master2/archive/master.zip).
+Ouvre IntelliJ, cliquez sur File -> New -> Project From Existing Sources. Cela ouvre une fenêtre, naviguez jusqu'au projet et selectionnez le fichier `osm/build.gradle.kts`.
+Cela ouvre une fenêtre avec le projet configuré avec Gradle.
+
 ## Le serveur de tuiles
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
