@@ -17,6 +17,8 @@ Vous pouvez cloner le projet avec git `git clone https://github.com/Joxit/IG-Mas
 Ouvre IntelliJ, cliquez sur File -> New -> Project From Existing Sources. Cela ouvre une fenêtre, naviguez jusqu'au projet et selectionnez le fichier `osm/build.gradle.kts`.
 Cela ouvre une fenêtre avec le projet configuré avec Gradle.
 
+Si vous n'avez pas Java de configuré, vous pouvez séléctionner le SDK à utiliser, pour cela cliquez sur File -> Project Structure -> Project. Vous verrez peut-être que vous verrez `<No SDK>`, cliquez dessus et selectionnez une version de Java (s'il y en a), sinon Add SDK -> JDK. Cela ouvre une fenêtre, naviguez jusuq'à l'endroit où il y a votre JDK. 
+
 ## Le serveur de tuiles
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
