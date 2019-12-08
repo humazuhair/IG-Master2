@@ -19,6 +19,8 @@ Cela ouvre une fenêtre avec le projet configuré avec Gradle.
 
 Si vous n'avez pas Java de configuré, vous pouvez séléctionner le SDK à utiliser, pour cela cliquez sur File -> Project Structure -> Project. Vous verrez peut-être que vous verrez `<No SDK>`, cliquez dessus et selectionnez une version de Java (s'il y en a), sinon Add SDK -> JDK. Cela ouvre une fenêtre, naviguez jusuq'à l'endroit où il y a votre JDK. 
 
+Vérifiez que le SDK utilisé par le projet est le même que celui qu'utilisera gradle. Pour cela allez dans File -> Settings. Cela ouvre une nouvelle fenêtre, sur la gauche séléctionnez Build, Execution, Deployment -> Build Tool -> Gradle et séléctionnez une version de JVM identique à celui du projet (verifiez que c'est positionné sur Project SDK).
+
 ## Le serveur de tuiles
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
