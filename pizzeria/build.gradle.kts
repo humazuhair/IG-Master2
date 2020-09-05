@@ -1,18 +1,11 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
-buildscript {
-  extra.apply {
-    set("springVersion", "5.2.1.RELEASE")
-    set("mysqlVersion", "8.0.18")
-    set("springBootVersion", "2.2.1.RELEASE")
-  }
-}
-
 plugins {
   java
   maven
   id("idea")
-  id("com.github.ben-manes.versions") version "0.27.0"
+  id("com.github.ben-manes.versions") version "0.30.0"
+  id("io.spring.dependency-management") version "1.0.10.RELEASE"
 }
 
 fun isNonStable(version: String): Boolean {

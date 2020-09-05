@@ -16,7 +16,7 @@ tasks.jar {
 
 dependencies {
   compile(project(":pizzeria-core"))
-  compile("io.vertx:vertx-web:3.8.4")
-  compile("javax.annotation:javax.annotation-api:1.3.2")
-  compile("org.javassist:javassist:3.26.0-GA")
+  compile("io.vertx:vertx-web:${property("version.vertx")}")
+  compile("javax.annotation:javax.annotation-api:${property("version.javax")}")
+  compile("org.javassist:javassist:${property("version.javassist")}")
 }

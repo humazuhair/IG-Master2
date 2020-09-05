@@ -5,16 +5,17 @@ plugins {
 
 dependencies {
   api("com.jolbox:bonecp:0.8.0.RELEASE")
-  api("org.springframework:spring-jdbc:${project.rootProject.ext["springVersion"]}")
-  api("org.springframework:spring-context:${project.rootProject.ext["springVersion"]}")
-  api("org.springframework:spring-orm:${project.rootProject.ext["springVersion"]}")
-  api("org.springframework.data:spring-data-jpa:2.2.2.RELEASE")
-  api("xml-apis:xml-apis:2.0.2")
-  api("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2")
-  api("org.slf4j:jcl-over-slf4j:1.7.29")
-  api("ch.qos.logback:logback-classic:1.2.3")
-  api("mysql:mysql-connector-java:${project.rootProject.ext["mysqlVersion"]}")
-  api("org.hibernate:hibernate-entitymanager:5.4.9.Final")
-  api("javax.xml.bind:jaxb-api:2.3.1")
+  api("org.springframework:spring-jdbc")
+  api("org.springframework:spring-context")
+  api("org.springframework:spring-orm")
+  api("org.springframework.data:spring-data-jpa:")
+
+  api("xml-apis:xml-apis:${property("version.xml-apis")}")
+  api("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:${property("version.hibernate-jpa")}")
+  api("org.slf4j:jcl-over-slf4j:${property("version.slf4j")}")
+  api("ch.qos.logback:logback-classic:${property("version.logback")}")
+  api("mysql:mysql-connector-java:${property("version.mysql")}")
+  api("org.hibernate:hibernate-entitymanager:${property("version.hibernate")}")
+  api("javax.xml.bind:jaxb-api:${property("version.jaxb")}")
 }
 

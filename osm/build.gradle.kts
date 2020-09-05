@@ -4,16 +4,12 @@ plugins {
   java
   maven
   id("idea")
-  id("com.github.ben-manes.versions") version "0.27.0"
-  kotlin("jvm") version "1.3.60" apply false
-  id("org.jetbrains.kotlin.plugin.spring") version "1.3.60" apply false
+  id("com.github.ben-manes.versions") version "0.30.0"
+  kotlin("jvm") version "1.4.0" apply false
+  id("org.jetbrains.kotlin.plugin.spring") version "1.4.0" apply false
+  id("io.spring.dependency-management") version "1.0.10.RELEASE"
 }
 
-buildscript {
-  extra.apply {
-    set("springVersion", "5.2.1.RELEASE")
-  }
-}
 fun isNonStable(version: String): Boolean {
   val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
   val regex = "^[0-9,\\.v\\-]+(-r)?$".toRegex()

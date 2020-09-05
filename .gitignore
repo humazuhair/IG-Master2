@@ -14,9 +14,9 @@ gradle-app.setting
 
 # OS Files #
 .DS_Store
- 
+
 *.class
- 
+
 # Package Files #
 *.jar
 *.war
@@ -28,27 +28,27 @@ rebel.xml
 ######################
 # Windows
 ######################
- 
+
 # Windows image file caches
-Thumbs.db 
- 
+Thumbs.db
+
 # Folder config file
 Desktop.ini
- 
+
 ######################
 # OSX
 ######################
- 
+
 .DS_Store
 .svn
- 
+
 # Thumbnails
 ._*
- 
+
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
- 
+
 ######################
 # IDEA
 ######################
@@ -58,11 +58,11 @@ Desktop.ini
 .idea/
 atlassian-ide-plugin.xml
 
- 
+
 ######################
 # Eclipse
 ######################
- 
+
 *.pydevproject
 .project
 .metadata
@@ -77,13 +77,13 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/
- 
+
 # Locally stored "Eclipse launch configurations"
 *.launch
- 
+
 # CDT-specific
 .cproject
- 
+
 # PDT-specific
 .buildpath
 
@@ -96,3 +96,5 @@ derby.log
 ######################
 
 .factorypath
+package-lock.json
+*.orig
