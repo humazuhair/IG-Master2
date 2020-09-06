@@ -36,7 +36,6 @@ allprojects {
 subprojects {
   apply(plugin = "java")
   apply(plugin = "kotlin")
-  apply(plugin = "kotlin")
 
   tasks {
     compileKotlin {

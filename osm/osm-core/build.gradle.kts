@@ -1,8 +1,4 @@
 description = "Core module"
-plugins {
-  `java-library`
-  id("kotlin")
-}
 
 dependencies {
   api("ch.qos.logback:logback-classic:${property("version.logback")}")

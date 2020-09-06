@@ -1,13 +1,10 @@
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-
 plugins {
   java
+  idea
   maven
-  id("idea")
+  kotlin("jvm") version "1.4.0"
   id("com.github.ben-manes.versions") version "0.30.0"
-  kotlin("jvm") version "1.4.0" apply false
-  id("org.jetbrains.kotlin.plugin.spring") version "1.4.0" apply false
-  id("io.spring.dependency-management") version "1.0.10.RELEASE"
+  id("org.springframework.boot") version "2.3.3.RELEASE" apply false
 }
 
 fun isNonStable(version: String): Boolean {
@@ -29,6 +26,11 @@ allprojects {
 
   group = "io.github.joxit"
   version = "1.0-SNAPSHOT"
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
 }
 
 subprojects {
@@ -40,14 +42,8 @@ subprojects {
     targetCompatibility = JavaVersion.VERSION_11
   }
 
-  repositories {
-    mavenLocal()
-    mavenCentral()
-
-    maven { url = uri("https://repo.maven.apache.org/maven2") }
-  }
-
   dependencies {
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:2.3.3.RELEASE"))
     implementation(kotlin("stdlib"))
   }
 }
