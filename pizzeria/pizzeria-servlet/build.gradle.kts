@@ -9,7 +9,7 @@ tasks.war {
 }
 
 dependencies {
-  compile(project(":pizzeria-core"))
+  implementation(project(":pizzeria-core"))
   implementation("org.springframework:spring-web")
   implementation("org.springframework:spring-webmvc")
   implementation("org.springframework:spring-webflux")

@@ -15,8 +15,13 @@ tasks.jar {
 }
 
 dependencies {
-  compile(project(":pizzeria-core"))
-  compile("io.vertx:vertx-web:${property("version.vertx")}")
-  compile("javax.annotation:javax.annotation-api:${property("version.javax")}")
-  compile("org.javassist:javassist:${property("version.javassist")}")
+  implementation(project(":pizzeria-core"))
+  implementation("org.springframework:spring-jdbc")
+  implementation("org.springframework:spring-context")
+  implementation("org.springframework:spring-orm")
+  implementation("org.springframework.data:spring-data-jpa")
+
+  implementation("io.vertx:vertx-web:${property("version.vertx")}")
+  implementation("javax.annotation:javax.annotation-api:${property("version.javax")}")
+  implementation("org.javassist:javassist:${property("version.javassist")}")
 }

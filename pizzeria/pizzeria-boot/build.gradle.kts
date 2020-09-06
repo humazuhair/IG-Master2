@@ -1,6 +1,6 @@
 plugins {
   java
-  id("org.springframework.boot") version "2.3.3.RELEASE"
+  id("org.springframework.boot")
 }
 
 tasks.bootJar {
