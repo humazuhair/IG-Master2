@@ -64,3 +64,17 @@ services:
     image: ig-master/pizzeria-ui
     ports:
       - 80:80
+
+  osm-boot:
+    build: ./osm/osm-boot
+    image: ig-master/osm:boot
+    ports:
+      - 127.0.0.1:8180:8180
+    environment:
+      SERVER_PORT: 8180
+
+  osm-ui:
+    build: ./osm/osm-ui
+    image: ig-master/osm:ui
+    ports:
+      - 127.0.0.1:81:80
