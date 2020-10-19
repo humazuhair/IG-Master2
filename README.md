@@ -11,7 +11,7 @@ Prérequis:
 -   [docker-compose](https://docs.docker.com/compose/install/)
 -   [nodejs](https://nodejs.org/en/download/package-manager/)
 
-## TP1: Pizzaria sous ~~JEE~~ Spring et API REST
+## Cours 1: Pizzaria sous ~~JEE~~ Spring et API REST
 
 1.  Pour lancer votre base de données (ici ça sera MySQL) :
 
@@ -38,3 +38,7 @@ Prérequis:
     `docker-compose up -d --build ui`
 
 4.  Pour utiliser l'interface utilisateur, il faut mettre comme query param `http://127.0.0.1/?url=http://127.0.0.1:8080` par exemple.
+
+## Cours 2: La cartographie avec OpenStreetMap
+
+Le support du cours se trouve [ici](https://joxit.dev/IG-Master2/osm/).
