@@ -6,3 +6,11 @@ project(":pizzeria-servlet").projectDir = File("$rootDir/pizzeria-servlet")
 project(":pizzeria-vertx").projectDir = File("$rootDir/pizzeria-vertx")
 project(":pizzeria-boot").projectDir = File("$rootDir/pizzeria-boot")
 project(":pizzeria-webflux").projectDir = File("$rootDir/pizzeria-webflux")
+
+pluginManagement {
+  plugins {
+    kotlin("jvm") version "${extra["version.kotlin"]}"
+    id("org.springframework.boot") version "${extra["version.spring.boot"]}"
+    id("com.github.ben-manes.versions") version "${extra["version.versions-plugin"]}"
+  }
+}

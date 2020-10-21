@@ -2,9 +2,9 @@ plugins {
   java
   idea
   maven
-  kotlin("jvm") version "1.4.0"
-  id("com.github.ben-manes.versions") version "0.30.0"
-  id("org.springframework.boot") version "2.3.3.RELEASE" apply false
+  kotlin("jvm")
+  id("com.github.ben-manes.versions")
+  id("org.springframework.boot") apply false
 }
 
 fun isNonStable(version: String): Boolean {
@@ -53,7 +53,7 @@ subprojects {
   }
 
   dependencies {
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:2.3.3.RELEASE"))
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:${property("version.spring.boot")}"))
     implementation(kotlin("stdlib"))
   }
 }

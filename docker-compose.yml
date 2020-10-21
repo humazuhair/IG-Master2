@@ -18,7 +18,7 @@ services:
 
   pizzeria-servlet:
     build: ./pizzeria/pizzeria-servlet
-    image: ig-master/pizzeria:servlet
+    image: joxit/ig-master2:pizzeria-servlet
     ports:
       - 127.0.0.1:8080:8080
     environment:
@@ -29,7 +29,7 @@ services:
       - mysql-db
   pizzeria-vertx:
     build: ./pizzeria/pizzeria-vertx
-    image: ig-master/pizzeria:vertx
+    image: joxit/ig-master2:pizzeria-vertx
     ports:
       - 127.0.0.1:8081:8081
     environment:
@@ -39,7 +39,7 @@ services:
       - pizzeria
   pizzeria-boot:
     build: ./pizzeria/pizzeria-boot
-    image: ig-master/pizzeria:boot
+    image: joxit/ig-master2:pizzeria-boot
     ports:
       - 127.0.0.1:8082:8082
     environment:
@@ -49,7 +49,7 @@ services:
       - pizzeria
   pizzeria-webflux:
     build: ./pizzeria/pizzeria-webflux
-    image: ig-master/pizzeria:webflux
+    image: joxit/ig-master2:pizzeria-webflux
     ports:
       - 127.0.0.1:8083:8083
     environment:
@@ -61,13 +61,13 @@ services:
     build:
       context: ./pizzeria/pizzeria-ui
       dockerfile: Dockerfile.builder
-    image: ig-master/pizzeria-ui
+    image: joxit/ig-master2:pizzeria-ui
     ports:
       - 80:80
 
   osm-boot:
     build: ./osm/osm-boot
-    image: ig-master/osm:boot
+    image: joxit/ig-master2:osm-boot
     ports:
       - 127.0.0.1:8180:8180
     environment:
@@ -75,6 +75,6 @@ services:
 
   osm-ui:
     build: ./osm/osm-ui
-    image: ig-master/osm:ui
+    image: joxit/ig-master2:osm-ui
     ports:
       - 127.0.0.1:81:80
