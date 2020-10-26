@@ -12,5 +12,6 @@ pluginManagement {
     kotlin("jvm") version "${extra["version.kotlin"]}"
     id("org.springframework.boot") version "${extra["version.spring.boot"]}"
     id("com.github.ben-manes.versions") version "${extra["version.versions-plugin"]}"
+    id("com.github.johnrengelman.shadow") version "5.2.0"
   }
 }

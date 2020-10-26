@@ -7,6 +7,8 @@ import io.github.joxit.pizzeria.model.PizzaCustom;
 import io.github.joxit.pizzeria.model.PizzaEager;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -19,7 +21,12 @@ public class PizzaMapper {
     PizzaDTO pizzaDTO = new PizzaDTO();
     pizzaDTO.setName(pizza.getName());
     pizzaDTO.setPrix(pizza.getPrix());
-    pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
+    List<String> list = new ArrayList<>();
+    for (Ingredient ingredient : pizza.getIngredients()) {
+      String name = ingredient.getName();
+      list.add(name);
+    }
+    pizzaDTO.setIngredients(list);
     return pizzaDTO;
   }
 

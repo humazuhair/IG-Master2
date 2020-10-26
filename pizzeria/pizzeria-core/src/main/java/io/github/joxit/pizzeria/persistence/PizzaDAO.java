@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 // For lazy loading
 @Transactional
 public class PizzaDAO {
+  // From JPA
   @PersistenceContext
   private EntityManager em;
   @Autowired

@@ -11,10 +11,21 @@ function run_for_java {
   docker-compose up ${1}-${2}
 }
 
+function run_for_vertx {
+  cd $1
+  ./gradlew clean :${1}-core:build :${1}-${2}:shadowJar
+  cd $DIR
+  docker-compose build ${1}-${2}
+  docker-compose up ${1}-${2}
+}
+
 if [ "$1" = "pizzeria" ]; then
   case "$2" in
-    boot|core|servlet|vertx|webflux)
+    boot|core|servlet|webflux)
       run_for_java $1 $2
+      ;;
+    vertx)
+      run_for_vertx $1 $2
       ;;
     ui)
       docker-compose build ${1}-${2}

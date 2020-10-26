@@ -2,16 +2,15 @@ import org.gradle.jvm.tasks.Jar
 
 plugins {
   java
+  id("com.github.johnrengelman.shadow")
 }
 
-tasks.jar {
-  enabled = true
-  archiveName = "pizzeria-vertx.jar"
-  manifest.attributes["Main-Class"] = "io.github.joxit.pizzeria.vertx.VertexExample"
-  // This line of code recursively collects and copies all of a project's files
-  // and adds them to the JAR itself. One can extend this task, to skip certain
-  // files or particular types at will
-  from(configurations.runtime.get().map({ if (it.isDirectory) it else zipTree(it) }))
+tasks.shadowJar {
+  archiveClassifier.set("")
+  archiveVersion.set("")
+  manifest {
+    attributes["Main-Class"] = "io.github.joxit.pizzeria.vertx.VertexExample"
+  }
 }
 
 dependencies {

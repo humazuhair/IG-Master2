@@ -5,6 +5,7 @@ plugins {
   kotlin("jvm")
   id("com.github.ben-manes.versions")
   id("org.springframework.boot") apply false
+  id("com.github.johnrengelman.shadow") apply false
 }
 
 fun isNonStable(version: String): Boolean {

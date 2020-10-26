@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 
 import javax.ws.rs.QueryParam;
 import java.util.List;
@@ -26,6 +25,7 @@ public class PizzaWebService {
   @Autowired
   private PizzeriaService pizzeriaService;
 
+  // Equivalent to @Get
   @RequestMapping(method = RequestMethod.GET)
   public List<PizzaDTO> getPizzeria(@QueryParam("type") String type) {
     LOGGER.info("getPizzeria");

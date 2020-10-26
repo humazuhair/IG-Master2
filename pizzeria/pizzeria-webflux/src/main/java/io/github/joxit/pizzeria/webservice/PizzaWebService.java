@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -28,8 +26,8 @@ public class PizzaWebService {
   private PizzeriaService pizzeriaService;
 
   @GetMapping
-  public Flux<PizzaDTO> getPizzeria(@RequestParam(value = "type", required = false) String type) {
+  public List<PizzaDTO> getPizzeria(@RequestParam(value = "type", required = false) String type) {
     LOGGER.info("getPizzeria");
-    return Flux.fromIterable(pizzeriaService.getAll(type));
+    return pizzeriaService.getAll(type);
   }
 }
