@@ -58,9 +58,6 @@ services:
     networks:
       - pizzeria
   pizzeria-ui:
-    build:
-      context: ./pizzeria/pizzeria-ui
-      dockerfile: Dockerfile.builder
     image: joxit/ig-master2:pizzeria-ui
     ports:
       - 80:80
