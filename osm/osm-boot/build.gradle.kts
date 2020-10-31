@@ -9,7 +9,7 @@ tasks.bootJar {
 }
 
 dependencies {
-  compile(project(":osm-core"))
+  implementation(project(":osm-core"))
 
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-configuration-processor")
