@@ -98,10 +98,10 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \begin{block}{Composition}
   \begin{itemize}
-    \item De la donnée géocontextualisée
-    \item Node => Noms Villes/Pays, POIs (Point Of Interest), Numéros de rues, Arbres...
+    \item De la géometrie géocontextualisée
+    \item Points => Noms Villes/Pays, POIs (Point Of Interest), Numéros de rues, Arbres...
     \item Lignes => Routes, Rivières, Frontières...
-    \item Polygons => Bâtiments, Fleuves/Lacs, Forêts, Frontières
+    \item Polygones => Bâtiments, Fleuves/Lacs, Forêts, Frontières
   \end{itemize}
 \end{block}
 
@@ -126,6 +126,11 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 # Création d'un serveur de tuiles
 
+## Création d'un serveur de tuiles{.standout}
+
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm/osm-ui/?access-token=RSFgHKD19KiOWw3PzK7dMKh0nEeb2IHXhc7OynVPLdnjeQTc6bFaQPIKu4oxe6Dq&url=https://osm.joxit.dev
+}{Démo}}
+
 ## Création d'un serveur de tuiles
 
 - Format de l'API: `/{z}/{x}/{y}.png`
@@ -138,17 +143,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Création d'un serveur de tuiles{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#le-serveur-de-tuiles}{Live Coding!!!}}
-
-## Affichage d'une carte
-
-- Utilisation de Mapbox GL JS
-- Source Raster (png)
-- Un fichier `index.html` static
-
-## Affichage d'une carte{.standout}
-
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#afficher-une-carte}{Live Coding!!!}}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#le-serveur-de-tuiles}{Place au TP}}
 
 # Création d'un serveur de POIs
 
@@ -162,7 +157,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Création d'un serveur de POIs{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Live Coding!!!}}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Place au TP}}
 
 # Ajout de tuiles vectorielles
 
@@ -173,29 +168,7 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Ajout de tuiles vectorielles{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Live Coding!!!}}
-
-# Ajout d'un tracé d'itinéraire
-
-## Ajout d'un tracé d'itinéraire
-
-- Appeller l'API d'itinéraire Jawg: <https://www.jawg.io/docs/apidocs/routing/osrm/>
-- Sélectionner le départ et l'arrivé du tracé grâce à des cliques sur la carte
-- Afficher l'itinéraire sur la carte
-
-## Ajout d'un tracé d'itinéraire{.standout}
-
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dun-itinéraire}{Live Coding!!!}}
-
-\begin{note}
-%# Ajout du geocoding
-
-%## Ajout du geocoding
-
-%- Ajout d'une barre de recherche
-%- Connecter la barre de recherche avec l'API
-%- Quand on clique sur la carte, remplir l'adresse grâce au reverse geocoding
-\end{note}
+\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Place au TP}}
 
 # Conclusion
 

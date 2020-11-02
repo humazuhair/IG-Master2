@@ -42,6 +42,8 @@ Maintenant vous avez toutes les fonctionnalités de base d'un serveur de tuiles.
 
 Pour cela, nous allons utiliser une librairie nommée [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/), il y a d'autres alternatives comme [Leaflet](https://leafletjs.com/).
 
+Tout a déjà été fait, nous n'allons nous retarder sur du dev front/carto. Vous pouvez utiliser le résultat [ici](https://joxit.dev/IG-Master2/osm/osm-ui/). Vous pouvez utiliser le query parameter `url=http://127.0.0.1:8080` ou un autre si votre serveur est sur un autre port.
+
   1. Ajoutez une source raster à votre carte. Hint: [exemple](https://docs.mapbox.com/mapbox-gl-js/example/map-tiles/), `tiles: ["http://127.0.0.1:8080/{z}/{x}/{y}.png"]`, vous pouvez enlever les attributions pour le moment.
   2. Ouvrez votre index.html dans votre navigateur, voilà vos tuiles!
 
@@ -70,6 +72,8 @@ C'est la partie placement de produit, vous avez déjà une carte, pas très four
 ## Ajout d'un itinéraire
 
 Maintenant on va ajouter le tracé d'un itinéraire sur la carte. Pour cela vous avez plusieurs choix, celui qu'on prend pour le moment sera de cliquer sur la carte pour sélectionner les points. On peut utiliser des combinaisons de touche comme ctrl + click par exemple.
+
+Cette partie a déjà été faite, pour utiliser l'itinéraire sur la carte, faite un CTR + click à deux endroits.
 
   1. Implémentez la partie d'appel à l'API d'itinéraire. Hint: pour connaître les retours, il y a [la doc](https://www.jawg.io/docs/apidocs/routing/osrm/).
   2. Ajoutez un listener sur l'objet map de MapboxGL. Hint: pour les listeners il y a également [une doc](https://docs.mapbox.com/mapbox-gl-js/api/).
