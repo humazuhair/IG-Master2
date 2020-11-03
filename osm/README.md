@@ -23,7 +23,37 @@ Vérifiez que le SDK utilisé par le projet est le même que celui qu'utilisera 
 
 Pour vérifier que tout fonctionne correctement, vous pouvez lancer le projet, sur la partie de gauche (Projet), ouvrez le projet `osm` -> `osm-boot` -> `src` -> `main` -> `java` -> `io.github.joxit.osm`. Faites un clique droit sur Application puis `Run Application.main()`.
 
-## Le serveur de tuiles
+Dès que vous avez dans la console quelque chose ressemblant à cela, c'est que votre serveur est démarré. Un [serveur](https://fr.wikipedia.org/wiki/Serveur_informatique) fournit donc des services à un ou plusieurs clients. Pour ce faire il doit resté démarré sans s'arrêter... Donc si vous voyez que ça ne bouge pas c'est totalement normal.... Il fait déjà son travail !
+
+```
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2020-11-02 07:11:55.234  INFO 8 --- [           main] io.github.joxit.osm.Application          : Starting Application v1.0-SNAPSHOT on 333bac29f1ba with PID 8 (/usr/src/osm/osm-boot.jar started by root in /usr/src/osm)
+2020-11-02 07:11:55.243  INFO 8 --- [           main] io.github.joxit.osm.Application          : No active profile set, falling back to default profiles: default
+2020-11-02 07:11:55.385  WARN 8 --- [kground-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-11-02 07:11:56.844  INFO 8 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-11-02 07:11:56.863  INFO 8 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-02 07:11:56.863  INFO 8 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-11-02 07:11:56.955  INFO 8 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-02 07:11:56.955  INFO 8 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1557 ms
+2020-11-02 07:11:57.623  INFO 8 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-02 07:11:57.639  INFO 8 --- [           main] io.github.joxit.osm.Application          : Started Application in 3.349 seconds (JVM running for 4.319)
+2020-11-02 07:13:35.754  INFO 8 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-02 07:13:35.754  INFO 8 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-02 07:13:35.769  INFO 8 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+```
+
+Vous pourrez contacter le serveur sur le port 8080. Si vous essayez d'aller sur <http://localhost:8080/>, vous allez voir une page avec écrit `Whitelabel Error Page`, c'est que le serveur répond, vous pouvez commencer à coder! Pour le moment si vous voulez voir la carte, cela ne marchera pas car vous n'avez pas encore dit à votre serveur de renvoyer les morceaux de tuile !
+
+## Sujet du TP
+
+### Le serveur de tuiles
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
 
@@ -38,16 +68,13 @@ Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponibl
 
 Maintenant vous avez toutes les fonctionnalités de base d'un serveur de tuiles. Maintenant il faut pouvoir l'afficher, pour cela il faut page web qui pourra afficher votre carte.
 
-## Afficher une carte
+### Afficher une carte
 
 Pour cela, nous allons utiliser une librairie nommée [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/), il y a d'autres alternatives comme [Leaflet](https://leafletjs.com/).
 
-Tout a déjà été fait, nous n'allons nous retarder sur du dev front/carto. Vous pouvez utiliser le résultat [ici](https://joxit.dev/IG-Master2/osm/osm-ui/). Vous pouvez utiliser le query parameter `url=http://127.0.0.1:8080` ou un autre si votre serveur est sur un autre port.
+Tout a déjà été fait, nous n'allons nous retarder sur du dev front/carto. Vous pouvez utiliser le résultat [ici](https://joxit.dev/IG-Master2/osm/osm-ui/?url=http://127.0.0.1:8080). Vous pouvez utiliser le query parameter `url=http://127.0.0.1:8080` ou un autre si votre serveur est sur un autre port.
 
-  1. Ajoutez une source raster à votre carte. Hint: [exemple](https://docs.mapbox.com/mapbox-gl-js/example/map-tiles/), `tiles: ["http://127.0.0.1:8080/{z}/{x}/{y}.png"]`, vous pouvez enlever les attributions pour le moment.
-  2. Ouvrez votre index.html dans votre navigateur, voilà vos tuiles!
-
-## Ajouter des points
+### Ajouter des points
 
 Maintenant nous allons ajouter des points à la carte. Nous avons à disposition la liste des préfectures de France au format GeoJSON. Le but sera de renvoyer cette liste via notre API de tuiles.
 
@@ -58,25 +85,3 @@ Maintenant nous allons ajouter des points à la carte. Nous avons à disposition
   5. Appliquez un layer de type [`circle`](https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-circle) qui décrit le style de votre point.
   6. Bonus: Créez une persistance pour vos points avec une base de données pour les récupérer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
   7. Bonus: Vous devez renvoyer un GeoJSON, vous avez plusieurs solutions, soit récuperer du GeoJSON via [PostgreSQL/PostGIS](https://postgis.net/docs/ST_AsGeoJSON.html), soit utiliser une [librairie GeoJSON](https://github.com/ngageoint/simple-features-geojson-java)
-
-## Ajout d'une source de tuiles vectorielles
-
-C'est la partie placement de produit, vous avez déjà une carte, pas très fournie... Maintenant on va voir une vraie carte avec de la donnée beaucoup plus précise que le SVG.
-
-  1. Créez vous un compte sur le [**Jawg**Lab](https://jawg.io/lab). Hint: visitez aussi le [site web](https://jawg.io) pour voir ce qu'on fait, il y a des démos.
-  2. Allez dans la section Gestion des Styles, vous pouvez un créer un ou en prendre un par défaut. Hint: Essayez `jawg-terrain` avec le bouton utiliser.
-  3. Remplacez votre style raster par celui-ci. Hint: Le lien est dans l'onglet MapboxGL.
-  4. Voilà, vous avez votre carte avec un magnifique style ;)
-  5. Bonus: Modifiez le style récupéré avec le lab ou à la main pour créer votre plus belle carte.
-
-## Ajout d'un itinéraire
-
-Maintenant on va ajouter le tracé d'un itinéraire sur la carte. Pour cela vous avez plusieurs choix, celui qu'on prend pour le moment sera de cliquer sur la carte pour sélectionner les points. On peut utiliser des combinaisons de touche comme ctrl + click par exemple.
-
-Cette partie a déjà été faite, pour utiliser l'itinéraire sur la carte, faite un CTR + click à deux endroits.
-
-  1. Implémentez la partie d'appel à l'API d'itinéraire. Hint: pour connaître les retours, il y a [la doc](https://www.jawg.io/docs/apidocs/routing/osrm/).
-  2. Ajoutez un listener sur l'objet map de MapboxGL. Hint: pour les listeners il y a également [une doc](https://docs.mapbox.com/mapbox-gl-js/api/).
-  3. Faites l'appel à l'API au second click.
-  4. Ajoutez la réponse de l'API en tant que data source de la carte.
-  5. Ajoutez un style pour afficher l'itinéraire.
