@@ -1,4 +1,4 @@
-package io.github.joxit.osm.webservice;
+package io.github.joxit.osm.controller;
 
 import mil.nga.sf.geojson.GeoJsonObject;
 
@@ -8,7 +8,7 @@ import mil.nga.sf.geojson.GeoJsonObject;
  * @author Jones Magloire @Joxit
  * @since 2019-11-03
  */
-public class TileWebService {
+public class TileController {
 
   /**
    * Cette méthode est le point d'entrée de l'API, il prend les requêtes au format `/{z}/{x}/{y}.png`.
