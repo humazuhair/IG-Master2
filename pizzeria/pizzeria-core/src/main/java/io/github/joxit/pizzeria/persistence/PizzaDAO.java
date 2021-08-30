@@ -48,12 +48,12 @@ public class PizzaDAO {
     return new ArrayList<>(jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
       PizzaCustom p = new PizzaCustom();
       p.setName(rs.getString("p.name"));
-      p.setPrix(rs.getFloat("p.prix"));
+      p.setPrice(rs.getFloat("p.price"));
       String iName = rs.getString("i.name");
       if (iName != null) {
         Ingredient i = new Ingredient();
         i.setName(iName);
-        i.setPrix(rs.getFloat("i.prix"));
+        i.setPrice(rs.getFloat("i.price"));
         p.setIngredients(Lists.newArrayList(i));
       } else {
         p.setIngredients(Lists.newArrayList());

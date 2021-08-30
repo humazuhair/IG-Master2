@@ -4,14 +4,14 @@ use `pizzeria`;
 
 create table if not exists Pizza (
   name varchar(20) not null,
-  prix numeric not null,
+  price numeric not null,
   constraint pk_Pizza primary key (name)
 );
 
 create table if not exists StockPizza (
   id integer not null auto_increment,
   pizza varchar(20),
-  quantite integer NULL,
+  quantity integer NULL,
   constraint pk_StockPizza primary key (id)
 );
 
@@ -20,14 +20,14 @@ create index ix_StockPizza_Pizza_1 on StockPizza (pizza);
   
 create table if not exists Ingredient (
   name varchar(20) not null,
-  prix numeric not null,
+  price numeric not null,
   constraint pk_Ingredient primary key (name)
 );
 
 create table if not exists IngredientStock (
   id integer not null auto_increment,
   ingredient varchar(20),
-  quantite integer NULL,
+  quantity integer NULL,
   constraint pk_IngredientStock primary key (id)
 );
 
@@ -36,14 +36,14 @@ create index ix_IngredientStock_Ingredient_1 on IngredientStock (ingredient);
   
 create table if not exists ArticleAutre (
   name varchar(20) not null,
-  prix numeric not null,
+  price numeric not null,
   constraint pk_ArticleAutre primary key (name)
 );
 
 create table if not exists AutreStock (
   id integer not null auto_increment,
   article varchar(20),
-  quantite integer NULL,
+  quantity integer NULL,
   constraint pk_AutreStock primary key (id)
 );
 

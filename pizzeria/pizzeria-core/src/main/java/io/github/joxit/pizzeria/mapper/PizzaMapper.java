@@ -20,7 +20,7 @@ public class PizzaMapper {
   public PizzaDTO modelToDTO(Pizza pizza) {
     PizzaDTO pizzaDTO = new PizzaDTO();
     pizzaDTO.setName(pizza.getName());
-    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setPrix(pizza.getPrice());
     List<String> list = new ArrayList<>();
     for (Ingredient ingredient : pizza.getIngredients()) {
       String name = ingredient.getName();
@@ -33,7 +33,7 @@ public class PizzaMapper {
   public PizzaDTO modelToDTO(PizzaEager pizza) {
     PizzaDTO pizzaDTO = new PizzaDTO();
     pizzaDTO.setName(pizza.getName());
-    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setPrix(pizza.getPrice());
     pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
     return pizzaDTO;
   }
@@ -41,7 +41,7 @@ public class PizzaMapper {
   public PizzaDTO modelToDTO(PizzaCustom pizza) {
     PizzaDTO pizzaDTO = new PizzaDTO();
     pizzaDTO.setName(pizza.getName());
-    pizzaDTO.setPrix(pizza.getPrix());
+    pizzaDTO.setPrix(pizza.getPrice());
     pizzaDTO.setIngredients(pizza.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
     return pizzaDTO;
   }

@@ -12,7 +12,7 @@ import java.io.Serializable;
 public abstract class Stockable implements Serializable {
   @Id
   private String name;
-  private float prix;
+  private float price;
 
   public String getName() {
     return name;
@@ -22,19 +22,19 @@ public abstract class Stockable implements Serializable {
     this.name = name;
   }
 
-  public float getPrix() {
-    return prix;
+  public float getPrice() {
+    return price;
   }
 
-  public void setPrix(float prix) {
-    this.prix = prix;
+  public void setPrice(float price) {
+    this.price = price;
   }
 
   @Override
   public String toString() {
     return "Stockable{" +
         "name='" + name + '\'' +
-        ", prix=" + prix +
+        ", prix=" + price +
         '}';
   }
 }

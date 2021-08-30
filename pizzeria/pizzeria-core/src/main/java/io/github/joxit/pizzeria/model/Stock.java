@@ -17,5 +17,5 @@ public abstract class Stock<T extends Stockable> implements Serializable {
   protected int id;
   //    @ManyToOne
   protected T stockable;
-  protected int quantite;
+  protected int quantity;
 }
