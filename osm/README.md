@@ -79,7 +79,7 @@ Tout a déjà été fait, nous n'allons nous retarder sur du dev front/carto. Vo
 Maintenant nous allons ajouter des points à la carte. Nous avons à disposition la liste des préfectures de France au format GeoJSON. Le but sera de renvoyer cette liste via notre API de tuiles.
 
   1. Créez un endpoint pour servire le GeoJSON. Hint: `TileController`.
-  2. Ajoutez le code pour récupérer le GeoJSON des ressources. Hint: Vous pouvez vous inspirer de `Svg` ou utilisez `@Value` de Spring, faites tout cela dans `TileService`.
+  2. Ajoutez le code pour récupérer le GeoJSON des ressources. Hint: Vous pouvez vous inspirer de `Svg` ou utilisez `@Value` de Spring, faites tout cela dans `TileService`. Attention la méthode [`getFile`](https://stackoverflow.com/questions/14876836/file-inside-jar-is-not-visible-for-spring) est à proscrire quand on utilise des fichiers dans le classpath.
   3. Utilisez votre Service dans votre Controlleur.
   4. Bonus: Créez une persistance pour vos points avec une base de données pour les récupérer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
   5. Bonus: Vous devez renvoyer un GeoJSON, vous avez plusieurs solutions, soit récuperer du GeoJSON via [PostgreSQL/PostGIS](https://postgis.net/docs/ST_AsGeoJSON.html), soit utiliser une [librairie GeoJSON](https://github.com/ngageoint/simple-features-geojson-java)
