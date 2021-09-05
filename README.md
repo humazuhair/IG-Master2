@@ -2,7 +2,7 @@
 
 Prérequis:
 
-- [java JDK 11](https://openjdk.java.net/) (n'oubliez pas de configurer votre JAVA_HOME)
+- [java JDK 11](https://adoptopenjdk.net/) (n'oubliez pas de configurer votre JAVA_HOME)
 - [docker](https://docs.docker.com/install/#supported-platforms) (n'oubliez pas de lancer la commande `sudo usermod -aG docker $(whoami)` puis redemarrez votre ordinateur)
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [nodejs](https://nodejs.org/en/download/package-manager/)
