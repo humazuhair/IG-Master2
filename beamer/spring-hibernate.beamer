@@ -105,6 +105,10 @@ build: pandoc -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibern
   \end{itemize}
 \end{block}
 
+## Hibernate (Démo)
+
+![](images/sequence-diagram-hibernate.png)
+
 ## Hibernate{.standout}
 
 \centering\Huge{\href{http://127.0.0.1:8080?type=lazy}{Démo}}
