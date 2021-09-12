@@ -2,7 +2,7 @@
 title: Introduction à Spring et Hibernate
 subtitle: Institut Galilée - Master 2 PLS
 author: Jones Magloire
-date: 26 Octobre 2020
+date: 23 Septembre 2021
 theme: metropolis
 toc: true
 section-titles: false
@@ -16,7 +16,7 @@ header-includes: |
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibernate.pdf
+build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibernate.pdf
 ---
 
 # Qu'est-ce que JEE ?
@@ -70,7 +70,7 @@ build: pandoc -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibern
 
 ## JEE (Démo)
 
-![](images/class-diagram.png)
+![](spring-hibernate-images/class-diagram.png)
 
 ## JEE (Démo){.standout}
 
@@ -107,7 +107,7 @@ build: pandoc -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibern
 
 ## Hibernate (Démo)
 
-![](images/sequence-diagram-hibernate.png)
+![](spring-hibernate-images/sequence-diagram-hibernate.png)
 
 ## Hibernate{.standout}
 
