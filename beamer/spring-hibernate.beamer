@@ -47,24 +47,16 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Qu'est-ce que JEE ?
 
-\begin{block}{Plusieurs type de serveur}
-  \begin{itemize}
-    \item Serveur d'application (Glassfish, WildFly...)
-    \item Conteneur de servlets (Tomcat, Jetty, WebSphere...)
-  \end{itemize}
-\end{block}
+### Plusieurs type de serveur
+- Serveur d'application (Glassfish, WildFly...)
+- Conteneur de servlets (Tomcat, Jetty, WebSphere...)
 
-\begin{block}{Implémentation des spécifications}
-  \begin{itemize}
-    \item Spring Framwork et ses modules
-    \begin{itemize}
-        \item Spring JDBC (implémente JDBC)
-        \item Spring ORM (binding hibernate et JPA)
-        \item Spring Web et WebMVC (implémentent servlet)
-    \end{itemize}
-    \item Hibernate ORM (JPA)
-  \end{itemize}
-\end{block}
+### Implémentation des spécifications
+- Spring Framwork et ses modules
+  - Spring JDBC (implémente JDBC)
+  - Spring ORM (binding hibernate et JPA)
+  - Spring Web et WebMVC (implémentent servlet)
+- Hibernate ORM (JPA)
 
 ----
 
@@ -94,16 +86,13 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Que fait Hibernate ?
 
-\begin{block}{Object-Relational Mapping (ORM)}
-  \begin{itemize}
-    \item Classe Java $\Leftrightarrow$ Table SQL (Entity)
-    \item Transactions (JTA)
-    \item Création des tables au démarrage
-    \item Lazy loading
-    \item Gestion des sessions à la DB
-    \item Cache de requêtes
-  \end{itemize}
-\end{block}
+### Object-Relational Mapping (ORM)
+- Classe Java $\Leftrightarrow$ Table SQL (Entity)
+- Transactions (JTA)
+- Création des tables au démarrage
+- Lazy loading
+- Gestion des sessions à la DB
+- Cache de requêtes
 
 ## Hibernate (Démo)
 
@@ -151,20 +140,14 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Que fait Spring ?
 
-\begin{block}{L'inversion de contrôle (IOC)}
-  \begin{itemize}
-    \item Résolution des dépendances pour la création des beans (Singleton/Prototype)
-    \item Injection des dépendances
-  \end{itemize}
-\end{block}
+### L'inversion de contrôle (IOC)
+- Résolution des dépendances pour la création des beans (Singleton/Prototype)
+- Injection des dépendances
 
-\begin{block}{Programmation orientée aspect (AOP)}
-  \begin{itemize}
-    \item Transactions
-    \item Exception handler
-    \item Intercepteurs (ex: securité)
-  \end{itemize}
-\end{block}
+### Programmation orientée aspect (AOP)
+- Transactions
+- Exception handler
+- Intercepteurs (ex: securité)
 
 ## Spring Framework{.standout}
 
@@ -183,16 +166,13 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Spring vs Spring Boot ?
 
-\begin{block}{Spring Boot}
-  \begin{itemize}
-    \item Basé sur Spring Framwork
-    \item Configuration automatique de l'application
-    \item Pas de déploiement de war
-    \item Beaucoup, beaucoup, beaucoup moins de code
-    \item Produit un fat jar (plus simple à lancer)
-    \item Bien pour faire des microservices scalable
-  \end{itemize}
-\end{block}
+### Spring Boot
+- Basé sur Spring Framwork
+- Configuration automatique de l'application
+- Pas de déploiement de war
+- Beaucoup, beaucoup, beaucoup moins de code
+- Produit un fat jar (plus simple à lancer)
+- Bien pour faire des microservices scalable
 
 ## Spring Boot{.standout}
 
@@ -235,22 +215,16 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Reactive Programming
 
-\begin{block}{Modèle classique}
-  \begin{itemize}
-    \item 1 requête = 1 thread
-    \item 10 requêtes = 10 threads
-    \item 100 requêtes = 100 threads
-    \item  Mais combien d’opérations peuvent réellement être exécutées en même temps?
-  \end{itemize}
-\end{block}
+### Modèle classique
+- 1 requête = 1 thread
+- 10 requêtes = 10 threads
+- 100 requêtes = 100 threads
+-  Mais combien d’opérations peuvent réellement être exécutées en même temps?
 
-\begin{block}{Modèle réactif}
-  \begin{itemize}
-    \item Des requêtes sur des \say{workers}
-    \item Optimiser l’activité du thread plutôt que le nombre de threads
-    \item Opérations non blocantes
-  \end{itemize}
-\end{block}
+### Modèle réactif
+- Des requêtes sur des \say{workers}
+- Optimiser l’activité du thread plutôt que le nombre de threads
+- Opérations non blocantes
 
 
 ## Reactive Programming{.standout}
@@ -267,14 +241,11 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Autres frameworks ?
 
-\begin{block}{Alternatives à JEE}
-  \begin{itemize}
-    \item Vert.x (framework événementiel par la fondation Eclipse)
-    \item Netty (framework non-blocking I/O par Netty Project Community)
-    \item Quarkus + GraalVM
-    \item Ktor (framwork asynchrone designé pour Kotlin)
-  \end{itemize}
-\end{block}
+### Alternatives à JEE
+- Vert.x (framework événementiel par la fondation Eclipse)
+- Netty (framework non-blocking I/O par Netty Project Community)
+- Quarkus + GraalVM
+- Ktor (framwork asynchrone designé pour Kotlin)
 
 ## Vert.x{.standout}
 
