@@ -2,7 +2,7 @@
 title: La cartographie avec OpenStreetMap
 subtitle: Institut Galilée - Master 2 PLS
 author: Jones Magloire
-date: 02 Novembre 2020
+date: 23 Septembre 2021
 theme: metropolis
 toc: true
 section-titles: false
@@ -16,7 +16,7 @@ header-includes: |
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
+build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 ---
 
 # OSM
@@ -43,29 +43,53 @@ build: pandoc -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## La donnée OSM
 
-\begin{block}{La donnée OSM}
-  \begin{itemize}
-    \item Projet de cartographie mondial
-    \item Node/Way/Relation
-    \item Tags clé/valeur
-    \item Distribué au format XML/PBF (600Go/54Go)
-    \item Parution complète hebdomadaire => <http://planet.osm.org>
-    \item Changements toutes les minutes/heures/jours => <http://planet.osm.org/replication>
-    \item Open Database License (ODbL)
-  \end{itemize}
-\end{block}
+\center\Large Projet de cartographie mondial
+
+![](openstreetmap-images/osm-world-project.png){ height=256px }
+
+## La donnée OSM
+
+\center\Large Types de données différents: Nodes, Way, Relations
+
+![](openstreetmap-images/overpass-turbo.png){ height=256px }
+
+## La donnée OSM
+
+\center\Large Tags clé/valeur
+
+![](openstreetmap-images/osm-keys-values.png){ height=300px }
+
+## La donnée OSM
+
+\center\large Parution hebdomadaire au format BZ2/PBF (100Go/60Go) avec mise à jour par minutes/heures/jours
+
+![](openstreetmap-images/planet-osm-org.png){ height=300px }
+
+## La donnée OSM
+
+\center\Large Open Database License (ODbL)
+
+- Possibilité d'utiliser la donnée publiquement et commercialement
+- Obligation de maintenir la license sur la donnée après ajout/modification
+- Obligation de mentionner à chauqe usage `© les contributeurs d’OpenStreetMap`
 
 ## La carte OSM
 
-\begin{block}{La carte OSM}
-  \begin{itemize}
-    \item Fond de carte par défaut => <https://osm.org>
-    \item Éditable via iD (osm.org), JOSM (desktop), OSM Contributors (Android), Vespucci (Android)...
-    \item Un wiki dédié => <https://wiki.osm.org/>
-    \item Attributions obligatoires `© les contributeurs d’OpenStreetMap`
-    \item Fond de carte orienté contribution
-  \end{itemize}
-\end{block}
+\center\Large Fond de carte par défaut: <https://osm.org>
+
+![](openstreetmap-images/osm-org.png){ height=300px }
+
+## La carte OSM
+
+\center\Large Éditable via iD (osm.org), JOSM (desktop), OSM Contributors (Android), StreetComplete (Android)...
+
+![](openstreetmap-images/iD-osm-org.png){ height=300px }
+
+## La carte OSM
+
+\center\Large Un wiki dédié: <https://wiki.osm.org/>
+
+![](openstreetmap-images/wiki-osm-org.png){ height=300px }
 
 ## Les providers OSM
 
