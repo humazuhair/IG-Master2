@@ -81,7 +81,7 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## La carte OSM
 
-\center\Large Éditable via iD (osm.org), JOSM (desktop), OSM Contributors (Android), StreetComplete (Android)...
+\center\large Éditable via iD (osm.org), JOSM (desktop), OSM Contributors (Android), StreetComplete (Android)...
 
 ![](openstreetmap-images/iD-osm-org.png){ height=300px }
 
@@ -95,13 +95,13 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 \begin{exampleblock}{Les providers OSM}
   \begin{itemize}
-    \item **Jawg**Maps (France)
+    \item \textbf{Jawg}Maps (France)
     \item Mapbox (USA)
     \item Carto (USA)
     \item Geofabrik (Allemagne)
     \item Stamen (USA)
     \item Thunderforest (USA)
-    \item **map**tiler/OpenMapTiles (Suisse)
+    \item \textbf{map}tiler/OpenMapTiles (Suisse)
   \end{itemize}
 \end{exampleblock}
 
@@ -120,21 +120,15 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Qu'est-ce qu'une carte ?
 
-\begin{block}{Composition}
-  \begin{itemize}
-    \item De la géometrie géocontextualisée
-    \item Points => Noms Villes/Pays, POIs (Point Of Interest), Numéros de rues, Arbres...
-    \item Lignes => Routes, Rivières, Frontières...
-    \item Polygones => Bâtiments, Fleuves/Lacs, Forêts, Frontières
-  \end{itemize}
-\end{block}
+### Composition
+- De la géometrie géocontextualisée
+- Points => Noms Villes/Pays, POIs (Point Of Interest), Numéros de rues, Arbres...
+- Lignes => Routes, Rivières, Frontières...
+- Polygones => Bâtiments, Fleuves/Lacs, Forêts, Frontières
 
-\begin{block}{Affichage}
-  \begin{itemize}
-    \item Rendu différent pour chaque type d'éléments
-    \item Utilisation de \say{tuiles} raster ou vectorielle
-  \end{itemize}
-\end{block}
+### Affichage
+- Rendu différent pour chaque type d'éléments
+- Utilisation de \say{tuiles} raster ou vectorielle
 
 ## Qu'est-ce qu'une carte ?
 
@@ -142,18 +136,40 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Les services cartographiques
 
-- Fond de carte (personalisé ou non, flux WMTS ou WMS)
-- Geocoding (Nom de ville <=> coordonnées)
-- Routing (Route de A à B)
-- Élevation (Altitude d'un point ou d'une série de points)
-- Système d'Information Géographique (SIG)
+\center\Large Fond de carte (personalisé ou non, flux WMTS ou WMS)
+
+![](openstreetmap-images/jawg-maps-editor.png){ height=300px }
+
+## Les services cartographiques
+
+\center\Large Geocoding (Nom de ville <=> coordonnées)
+
+![](openstreetmap-images/jawg-maps-geocoding.png){ height=300px }
+
+## Les services cartographiques
+
+\center\Large Routing (Route de A à B)
+
+![](openstreetmap-images/jawg-maps-routing.png){ height=300px }
+
+## Les services cartographiques
+
+\center\large Élevation (Altitude d'un point ou d'une série de points)
+
+![](openstreetmap-images/jawg-maps-elevation.png){ height=300px }
+
+## Les services cartographiques
+
+\center\Large Système d'Information Géographique (SIG)
+
+![](openstreetmap-images/ods-sig.png){ height=300px }
 
 # Création d'un serveur de tuiles
 
 ## Création d'un serveur de tuiles{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm/osm-ui/?access-token=RSFgHKD19KiOWw3PzK7dMKh0nEeb2IHXhc7OynVPLdnjeQTc6bFaQPIKu4oxe6Dq&url=https://osm.joxit.dev
-}{Démo}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/osm/osm-ui/?access-token=RSFgHKD19KiOWw3PzK7dMKh0nEeb2IHXhc7OynVPLdnjeQTc6bFaQPIKu4oxe6Dq&url=https://osm.joxit.dev
+}{Démo}
 
 ## Création d'un serveur de tuiles
 
@@ -167,7 +183,7 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Création d'un serveur de tuiles{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#le-serveur-de-tuiles}{Place au TP}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/osm\#le-serveur-de-tuiles}{Place au TP}
 
 # Création d'un serveur de POIs
 
@@ -181,7 +197,7 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Création d'un serveur de POIs{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Place au TP}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/osm\#ajouter-des-points}{Place au TP}
 
 # Ajout de tuiles vectorielles
 
@@ -192,7 +208,7 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Ajout de tuiles vectorielles{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Place au TP}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/osm\#ajout-dune-source-de-tuiles-vectorielles}{Place au TP}
 
 # Conclusion
 
@@ -213,4 +229,4 @@ build: pandoc -f markdown -st beamer openstreetmap.beamer -o openstreetmap.pdf
 
 ## Conclusion {.standout}
 
-\centering\Huge{Question ?}
+\centering\Huge Question ?

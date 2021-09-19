@@ -66,7 +66,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## JEE (Démo){.standout}
 
-\centering\Huge{\href{https://servlet.joxit.dev/}{Démo}}
+\centering\Huge\href{https://servlet.joxit.dev/}{Démo}
 
 [question-JEE-8]: <> (Finalement, qu'est-ce qu'une JSP ?)
 [à montrer-JEE-1]: <> (pizzeria-servlet WebApp: sources Java)
@@ -100,7 +100,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Hibernate{.standout}
 
-\centering\Huge{\href{http://127.0.0.1:8080?type=lazy}{Démo}}
+\centering\Huge\href{http://127.0.0.1:8080?type=lazy}{Démo}
 
 [à montrer-Hibernate-1]: <> (pizzeria-core model: Pizza avec ses annotations)
 [à montrer-Hibernate-2]: <> (Suppression de la transaction)
@@ -151,7 +151,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Spring Framework{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://servlet.joxit.dev/api}{Démo}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://servlet.joxit.dev/api}{Démo}
 
 [à montrer-Spring-1]: <> (pizzeria-servlet webservice: Configuration d'une API)
 [à montrer-Spring-2]: <> (pizzeria-servlet webservice: gestion des erreurs)
@@ -176,7 +176,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Spring Boot{.standout}
 
-\centering\Huge{\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://boot.joxit.dev/api}{Démo}}
+\centering\Huge\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://boot.joxit.dev/api}{Démo}
 
 [question-SpringBoot-3]: <> (Que choisir entre Spring sur Tomcat et Spring Boot ?)
 [question-SpringBoot-4]: <> (Quelles sont les differences entre Spring et Spring Boot ?)
@@ -203,7 +203,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Gradle{.standout}
 
-\centering\Huge{\href{https://github.com/Joxit/IG-Master2/commit/a77b03c0496a31a3fabbcf9d873f45bc909ac9a2}{Démo}}
+\centering\Huge\href{https://github.com/Joxit/IG-Master2/commit/a77b03c0496a31a3fabbcf9d873f45bc909ac9a2}{Démo}
 
 # Reactive Programming ?
 
@@ -229,7 +229,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Reactive Programming{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge Démo
 
 [à montrer-Reactive-1]: <> (pizzeria-webflux: Application pour les anotation et webservice)
 [à montrer-Reactive-2]: <> (pizzeria-webflux: Sur des requêtes utilisant la BDD cela ne va rien changer (dangeureux même))
@@ -249,14 +249,14 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 
 ## Vert.x{.standout}
 
-\centering\Huge{Démo}
+\centering\Huge Démo
 
 [à montrer-Vert.x-1]: <> (perf: entre vertx et webflux sur empty)
 [à montrer-Vert.x-2]: <> (Difference entre Netty et Vert.x)
 
 ## Introduction à Spring et Hibernate{.standout}
 
-\centering\Huge{Questions ?}
+\centering\Huge Questions ?
 
 ## Stage takima
 
