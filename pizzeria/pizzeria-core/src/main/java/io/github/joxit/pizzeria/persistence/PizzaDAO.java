@@ -45,7 +45,7 @@ public class PizzaDAO {
   }
 
   public List<PizzaCustom> getCustom() {
-    return new ArrayList<>(jdbcTemplate.query("select p.name, p.prix, i.name, i.prix from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
+    return new ArrayList<>(jdbcTemplate.query("select p.name, p.price, i.name, i.price from Pizza p inner join MtM_Pizza_Ingredient m on p.name = m.pizza inner join Ingredient i on m.ingredient = i.name", (rs, rowNum) -> {
       PizzaCustom p = new PizzaCustom();
       p.setName(rs.getString("p.name"));
       p.setPrice(rs.getFloat("p.price"));
