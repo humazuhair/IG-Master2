@@ -1,4 +1,4 @@
-package io.github.joxit.pizzeria.webservice.handler;
+package io.github.joxit.pizzeria.controller.handler;
 
 import io.github.joxit.pizzeria.exception.HandledException;
 import org.slf4j.Logger;

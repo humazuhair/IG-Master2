@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
 	<context:component-scan base-package="io.github.joxit.pizzeria.webapp" />
-	<context:component-scan base-package="io.github.joxit.pizzeria.webservice" />
+	<context:component-scan base-package="io.github.joxit.pizzeria.controller" />
 
 	<!-- Base view are in /WEB-INF/views. Used for ModelAndView from controller -->
 	<bean id="jsp"

@@ -12,7 +12,7 @@ public class TileController {
 
   /**
    * Cette méthode est le point d'entrée de l'API, il prend les requêtes au format `/{z}/{x}/{y}.png`.
-   * Attetion, il doit renvoyer le header Content-Type image/png; voir les MediaType de Spring
+   * Attention, il doit renvoyer le header Content-Type image/png; voir les MediaType de Spring
    *
    * @param z zoom
    * @param x coordonée

@@ -1,4 +1,4 @@
-package io.github.joxit.pizzeria.webservice;
+package io.github.joxit.pizzeria.controller;
 
 import io.github.joxit.pizzeria.dto.PizzaDTO;
 import io.github.joxit.pizzeria.service.PizzeriaService;
@@ -20,8 +20,8 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping({"/api", "/api/"})
-public class PizzaWebService {
-  private static Logger LOGGER = LoggerFactory.getLogger(PizzaWebService.class);
+public class PizzaController {
+  private static Logger LOGGER = LoggerFactory.getLogger(PizzaController.class);
   @Autowired
   private PizzeriaService pizzeriaService;
 

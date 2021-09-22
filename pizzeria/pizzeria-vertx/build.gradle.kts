@@ -20,6 +20,7 @@ dependencies {
   implementation("org.springframework:spring-orm")
   implementation("org.springframework.data:spring-data-jpa")
 
+  implementation("com.fasterxml.jackson.core:jackson-databind:${property("version.jackson")}")
   implementation("io.vertx:vertx-web:${property("version.vertx")}")
   implementation("javax.annotation:javax.annotation-api:${property("version.javax")}")
   implementation("org.javassist:javassist:${property("version.javassist")}")

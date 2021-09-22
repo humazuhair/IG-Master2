@@ -1,5 +1,6 @@
 package io.github.joxit.pizzeria.vertx;
 
+import io.vertx.core.Promise;
 import io.vertx.core.Verticle;
 import io.vertx.core.spi.VerticleFactory;
 import org.springframework.beans.BeansException;
@@ -7,17 +8,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.Callable;
+
 @Component
 public class SpringVerticleFactory implements VerticleFactory, ApplicationContextAware {
 
   private ApplicationContext applicationContext;
-
-  @Override
-  public boolean blockingCreate() {
-    // Usually verticle instantiation is fast but since our verticles are Spring Beans,
-    // they might depend on other beans/resources which are slow to build/lookup.
-    return true;
-  }
 
   @Override
   public String prefix() {
@@ -26,10 +22,9 @@ public class SpringVerticleFactory implements VerticleFactory, ApplicationContex
   }
 
   @Override
-  public Verticle createVerticle(String verticleName, ClassLoader classLoader) throws Exception {
-    // Our convention in this example is to give the class name as verticle name
+  public void createVerticle(String verticleName, ClassLoader classLoader, Promise<Callable<Verticle>> promise) {
     String clazz = VerticleFactory.removePrefix(verticleName);
-    return (Verticle) applicationContext.getBean(Class.forName(clazz));
+    promise.complete(() -> (Verticle) applicationContext.getBean(Class.forName(clazz)));
   }
 
   @Override

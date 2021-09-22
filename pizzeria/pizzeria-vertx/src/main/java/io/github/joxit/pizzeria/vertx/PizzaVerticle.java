@@ -33,11 +33,11 @@ public class PizzaVerticle extends AbstractVerticle {
 
   private void handle(Message<String> msg) {
     Future.future(ar -> ar.complete(pizzeriaService.getAll(msg.body())))
-        .setHandler(ar -> msg.reply(ar.result()))
+        .onComplete(ar -> msg.reply(ar.result()))
         .otherwise(err -> {
           msg.fail(500, err.getMessage());
           return err.getMessage();
-        }).tryFail(new RuntimeException());
+        });
   }
 
 }

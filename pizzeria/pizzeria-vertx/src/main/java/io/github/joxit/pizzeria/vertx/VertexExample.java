@@ -2,11 +2,7 @@ package io.github.joxit.pizzeria.vertx;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 import io.netty.util.ResourceLeakDetector;
-import io.vertx.core.CompositeFuture;
-import io.vertx.core.DeploymentOptions;
-import io.vertx.core.Future;
-import io.vertx.core.Promise;
-import io.vertx.core.Vertx;
+import io.vertx.core.*;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.MessageCodec;
@@ -14,11 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -116,15 +108,14 @@ public class VertexExample {
 
     eventBus.registerDefaultCodec(ArrayList.class, ObjectMessageCodec.of(ArrayList.class));
 
-    CompositeFuture.all(futures)
-        .setHandler(ar -> {
-          if (ar.succeeded()) {
-            LOGGER.info("Pizzeria app is started");
-          } else {
-            LOGGER.error("Error in server initialization", ar.cause());
-            System.exit(1);
-          }
-        });
+    CompositeFuture.all(futures).onComplete(ar -> {
+      if (ar.succeeded()) {
+        LOGGER.info("Pizzeria app is started");
+      } else {
+        LOGGER.error("Error in server initialization", ar.cause());
+        System.exit(1);
+      }
+    });
   }
 
   @Bean
@@ -141,7 +132,6 @@ public class VertexExample {
      *
      * @param clazz the class
      * @param <T>   the type of the class
-     *
      * @return a new instance
      */
     private static <T> ObjectMessageCodec<T> of(Class<T> clazz) {
