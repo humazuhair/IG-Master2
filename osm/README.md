@@ -83,3 +83,21 @@ Maintenant nous allons ajouter des points à la carte. Nous avons à disposition
   3. Utilisez votre Service dans votre Controlleur.
   4. Bonus: Créez une persistance pour vos points avec une base de données pour les récupérer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
   5. Bonus: Vous devez renvoyer un GeoJSON, vous avez plusieurs solutions, soit récuperer du GeoJSON via [PostgreSQL/PostGIS](https://postgis.net/docs/ST_AsGeoJSON.html), soit utiliser une [librairie GeoJSON](https://github.com/ngageoint/simple-features-geojson-java)
+
+## Annexes
+
+### Les annotations Spring
+
+- `Autowired`: Marque un constructeur, un champ, une méthode setter ou une méthode de configuration comme devant être injecté automatiquement par le système d'injection de dépendances de Spring.
+- `CrossOrigin`: Annotation permettant d'autoriser les requêtes CORS (erreurs au niveau des navigateurs web) sur des controlleurs
+- `GetMapping`: Spécialisation de `RequestMapping` pour des requêtes GET
+- `PathVariable`: Indique que le paramètre d'une méthode devrait être liée à une variable template de l'URI. Supporté par les méthodes utilisant les annotations de type RequestMapping.
+- `RequestMapping`: Annotation pour mapper les requêtes web sur des méthodes dans des controlleurs.
+- `RestController`:  Indique qu'une classe annotée est un "Controller". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
+- `Service`: Indique qu'une classe annotée est un "Service". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
+- `Value`: Permet d'injecter dans une variable une valeur, une ressource ou une propriété
+
+### Les classes Java et Spring
+
+- `InputStream`: Flux de donnée d'un fichier. Peut-être lu une fois pour renvoyer des bytes ou un String.
+- `Resource`: Permet d'injecter des resources du classpath.

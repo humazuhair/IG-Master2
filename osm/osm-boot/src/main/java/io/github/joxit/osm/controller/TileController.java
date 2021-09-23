@@ -2,6 +2,8 @@ package io.github.joxit.osm.controller;
 
 import mil.nga.sf.geojson.GeoJsonObject;
 
+import java.io.IOException;
+
 /**
  * C'est le controlleur de l'application, il faut le déclarer comme tel et activer les CrossOrigin
  *
@@ -17,7 +19,6 @@ public class TileController {
    * @param z zoom
    * @param x coordonée
    * @param y coordonée
-   *
    * @return l'image au format PNG
    */
   public byte[] getTile(int z, int x, int y) {
@@ -30,7 +31,7 @@ public class TileController {
    *
    * @return String representant le GeoJSON des prefectures
    */
-  public String getPrefectures() {
+  public String getPrefectures() throws IOException {
     return null;
   }
 

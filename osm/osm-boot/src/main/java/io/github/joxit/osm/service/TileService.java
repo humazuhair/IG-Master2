@@ -3,6 +3,8 @@ package io.github.joxit.osm.service;
 import io.github.joxit.osm.model.Tile;
 import mil.nga.sf.geojson.GeoJsonObject;
 
+import java.io.IOException;
+
 /**
  * Service pour retourner les tuiles.
  *
@@ -16,7 +18,6 @@ public class TileService {
    * Vous pouvez y ajouter des fonctionnalités en plus pour améliorer les perfs.
    *
    * @param tile qu'il faut renvoyer
-   *
    * @return le byte array au format png
    */
   public byte[] getTile(Tile tile) {
@@ -26,7 +27,7 @@ public class TileService {
   /**
    * @return le contenu du fichier prefectures.geojson
    */
-  public String getPrefectures() {
+  public String getPrefectures() throws IOException {
     return null;
   }
 
