@@ -57,28 +57,28 @@ Vous pourrez contacter le serveur sur le port 8080. Si vous essayez d'aller sur 
 
 Pour le serveur, nous allons utiliser Spring Boot, la base de code est disponible dans osm-boot. Voici quelques étapes que vous pouvez suivre pour vous aider.
 
-  1. Créez le `RestControlleur` et vos endpoints, typiquement le `/{z}/{x}/{y}.png` vu en cours. Hint: `TileController`.
-  2. Créez votre `Service` qui va appeler `Svg.getTile(Tile t)`. Hint: `TileService`.
-  3. Utilisez votre service créé juste avant dans votre contrôleur.
-  4. Faites de la validation sur les tuiles dans votre Service. Hint: `IllegalArgumentException`, nombres négatifs, valeurs de x et y trop grands, z ne doit pas dépasser 24.
-  5. Renvoyez des codes d'erreur 400 avec votre validation. Hint: `ControllerAdvice`, `ExceptionHandler`.
+  1. Utilisez la classe `TileController` et transformez la en un controlleur spring qui pourra répondre aux requêtes comme `/{z}/{x}/{y}.png` vu en cours. Assurez vous d'avoir également la configuration pour le Cross Origins.
+  2. Utilisez la classe `TileService` et transformez la en un service spring qui appellera `Svg.getTile(Tile t)`.
+  3. Utilisez votre service créé juste avant dans votre contrôleur. Utilisez bien l'injection de dépendences de Spring.
+  4. Faites de la validation sur les tuiles dans votre Service. Vous devrez throw une exception de type `IllegalArgumentException` quand les nombres sont négatifs, quand les valeurs de x et y trop grands par rapport au niveau de zoom et z ne doit pas dépasser 24.
+  5. Utilisez la classe `GlobalExceptionHandler` pour qu'elle puisse gérer les exceptions que vous avez créé dans la question précédente. Vous devrez renvoyer un code d'erreur 400 avec votre validation. Hint: `ControllerAdvice`, `ExceptionHandler`.
   6. Bonus: Utilisez un cache pour ne pas à avoir à générer les tuiles à chaque fois.
   7. Bonus: Améliorez le code de la classe `Svg` pour améliorer les perfs. Hint: Attention à l'Input-Output ;).
-  8. Démarrez votre serveur de tuiles. Hint: Il écoutera sur le port 8080, <http://127.0.0.1:8080/0/0/0.png> devrait fonctionner.
+  8. Démarrez votre serveur de tuiles. Il écoutera sur le port 8080, <http://127.0.0.1:8080/0/0/0.png> devrait afficher la carte du monde.
 
 Maintenant vous avez toutes les fonctionnalités de base d'un serveur de tuiles. Maintenant il faut pouvoir l'afficher, pour cela il faut page web qui pourra afficher votre carte.
 
 ### Afficher une carte
 
-Pour cela, nous allons utiliser une librairie nommée [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/), il y a d'autres alternatives comme [Leaflet](https://leafletjs.com/).
-
 Tout a déjà été fait, nous n'allons nous retarder sur du dev front/carto. Vous pouvez utiliser le résultat [ici](https://joxit.dev/IG-Master2/osm/osm-ui/?url=http://127.0.0.1:8080). Vous pouvez utiliser le query parameter `url=http://127.0.0.1:8080` ou un autre si votre serveur est sur un autre port.
+
+Pour information, si vous souhaitez afficher des carte sur un site web, vous devrez utiliser des librairies comme [MapLibre GL](https://maplibre.org/), ou [Leaflet](https://leafletjs.com/). Le choix du service de cartographie est libre (il faudra bien entendu préférer [Jawg Maps](https://www.jawg.io)).
 
 ### Ajouter des points
 
 Maintenant nous allons ajouter des points à la carte. Nous avons à disposition la liste des préfectures de France au format GeoJSON. Le but sera de renvoyer cette liste via notre API de tuiles.
 
-  1. Créez un endpoint pour servire le GeoJSON. Hint: `TileController`.
+  1. Utilisez `TileController` et ajoutez un endpoint pour servire le GeoJSON des préféctures.
   2. Ajoutez le code pour récupérer le GeoJSON des ressources. Hint: Vous pouvez vous inspirer de `Svg` ou utilisez `@Value` de Spring, faites tout cela dans `TileService`. Attention la méthode [`getFile`](https://stackoverflow.com/questions/14876836/file-inside-jar-is-not-visible-for-spring) est à proscrire quand on utilise des fichiers dans le classpath.
   3. Utilisez votre Service dans votre Controlleur.
   4. Bonus: Créez une persistance pour vos points avec une base de données pour les récupérer. Hint: Utilisez PostgreSQL avec l'extension PostGIS, il y a un type `Geometry` spécial, vous avez le choix entre Hibernate et JDBCTemplate.
@@ -88,14 +88,14 @@ Maintenant nous allons ajouter des points à la carte. Nous avons à disposition
 
 ### Les annotations Spring
 
-- `Autowired`: Marque un constructeur, un champ, une méthode setter ou une méthode de configuration comme devant être injecté automatiquement par le système d'injection de dépendances de Spring.
-- `CrossOrigin`: Annotation permettant d'autoriser les requêtes CORS (erreurs au niveau des navigateurs web) sur des controlleurs
-- `GetMapping`: Spécialisation de `RequestMapping` pour des requêtes GET
-- `PathVariable`: Indique que le paramètre d'une méthode devrait être liée à une variable template de l'URI. Supporté par les méthodes utilisant les annotations de type RequestMapping.
-- `RequestMapping`: Annotation pour mapper les requêtes web sur des méthodes dans des controlleurs.
-- `RestController`:  Indique qu'une classe annotée est un "Controller". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
-- `Service`: Indique qu'une classe annotée est un "Service". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
-- `Value`: Permet d'injecter dans une variable une valeur, une ressource ou une propriété
+- `@Autowired`: Marque un constructeur, un champ, une méthode setter ou une méthode de configuration comme devant être injecté automatiquement par le système d'injection de dépendances de Spring.
+- `@CrossOrigin`: Annotation permettant d'autoriser les requêtes CORS (erreurs au niveau des navigateurs web) sur des controlleurs
+- `@GetMapping`: Spécialisation de `RequestMapping` pour des requêtes GET
+- `@PathVariable`: Indique que le paramètre d'une méthode devrait être liée à une variable template de l'URI. Supporté par les méthodes utilisant les annotations de type RequestMapping.
+- `@RequestMapping`: Annotation pour mapper les requêtes web sur des méthodes dans des controlleurs.
+- `@RestController`:  Indique qu'une classe annotée est un "Controller". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
+- `@Service`: Indique qu'une classe annotée est un "Service". Cette annotation permet à ses implémentations d'être auto détectée à travers un scan du classpath par Spring.
+- `@Value`: Permet d'injecter dans une variable une valeur, une ressource ou une propriété
 
 ### Les classes Java et Spring
 
