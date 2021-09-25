@@ -1,11 +1,11 @@
 # IG-Master2 - Langages et Environements Évolués
 
-Prérequis:
+Prérequis pour le TP dans l'ordre:
 
-- [java JDK 11](https://adoptopenjdk.net/) (n'oubliez pas de configurer votre JAVA_HOME)
-- [docker](https://docs.docker.com/install/#supported-platforms) (n'oubliez pas de lancer la commande `sudo usermod -aG docker $(whoami)` puis redemarrez votre ordinateur)
-- [docker-compose](https://docs.docker.com/compose/install/)
-- [nodejs](https://nodejs.org/en/download/package-manager/)
+- [Java JDK 11 ou +](https://adoptopenjdk.net/), n'oubliez pas de configurer votre JAVA_HOME.
+- [IntelliJ Idea Community ou Ultimate](https://www.jetbrains.com/idea/download/), vous pouvez prendre un autre IDE mais je ne pourrais pas vous aider à le configurer.
+- **Lire la [FAQ](#faq) et le [sujet](https://joxit.dev/IG-Master2/osm/), il y a les instructions pour importer correctement votre projet et le lancer une première fois.**
+- Importer le projet contenu dans le dossier OSM et le lancer une première fois. Cette étape est importante car elle prend du temps !
 
 ## Cours 1: Introduction à Spring et Hibernate
 

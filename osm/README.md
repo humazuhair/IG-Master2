@@ -14,10 +14,10 @@ Vous pouvez utiliser d'autres IDE, mais je ne pourrais pas vous aider... (Non, A
 ### Récuperer le code
 
 Vous pouvez cloner le projet avec git `git clone https://github.com/Joxit/IG-Master2` ou télécherger le [zip](https://github.com/Joxit/IG-Master2/archive/master.zip).
-Ouvre IntelliJ, cliquez sur `File` -> `New` -> `Project From Existing Sources`. Cela ouvre une fenêtre, naviguez jusqu'au projet et selectionnez le fichier `osm/build.gradle.kts`.
+Ouvre IntelliJ, cliquez sur `File` -> `New` -> `Project From Existing Sources`. Cela ouvre une fenêtre, naviguez jusqu'au projet et **selectionnez le fichier** `osm/build.gradle.kts`.
 Cela ouvre une fenêtre avec le projet configuré avec Gradle.
 
-Si vous n'avez pas Java de configuré, vous pouvez séléctionner le SDK à utiliser, pour cela cliquez sur `File` -> `Project Structure` -> `Project`. Vous verrez peut-être que vous verrez `<No SDK>`, cliquez dessus et selectionnez une version de Java (s'il y en a), sinon `Add SDK` -> `JDK`. Cela ouvre une fenêtre, naviguez jusuq'à l'endroit où il y a votre JDK. 
+Si vous n'avez pas Java de configuré, vous pouvez séléctionner le SDK à utiliser, pour cela cliquez sur `File` -> `Project Structure` -> `Project`. Vous verrez peut-être que vous verrez `<No SDK>`, cliquez dessus et selectionnez une version de Java (s'il y en a), sinon `Add SDK` -> `JDK`. Cela ouvre une fenêtre, naviguez jusuq'à l'endroit où il y a votre JDK (essayez `/usr/lib/jvm/` pour linux ou dans les dossiers `Program Files/Eclipse Foundation` sous Windows).
 
 Vérifiez que le SDK utilisé par le projet est le même que celui qu'utilisera gradle. Pour cela allez dans `File` -> `Settings`. Cela ouvre une nouvelle fenêtre, sur la gauche séléctionnez `Build, Execution, Deployment` -> `Build Tool` -> `Gradle` et séléctionnez une version de JVM identique à celui du projet (verifiez que c'est positionné sur `Project SDK`).
 

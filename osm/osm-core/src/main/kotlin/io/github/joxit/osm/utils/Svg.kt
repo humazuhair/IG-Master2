@@ -26,7 +26,7 @@ object Svg {
 
   @JvmStatic
   fun getTile(t: Tile): ByteArray {
-    return svgToPng(getWorldSVG().tile(t.z, t.x, t.y), t.scale * 256)
+    return svgToPng(getWorldSVG().tile(t.z, t.x, t.y), 256)
   }
 
   fun Document.tile(z: Int, x: Int, y: Int): Document {
