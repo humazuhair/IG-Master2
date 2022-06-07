@@ -16,7 +16,7 @@ header-includes: |
   \AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=blueJawg}}
   \AtBeginEnvironment{block}{\setbeamercolor{itemize subitem}{fg=blueJawg}}
   \usepackage{dirtytalk}
-build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o spring-hibernate.pdf
+build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A takima.tex -o spring-hibernate.pdf
 ---
 
 # Qu'est-ce que JEE ?
@@ -257,23 +257,3 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -o s
 ## Introduction à Spring et Hibernate{.standout}
 
 \centering\Huge Questions ?
-
-## Stage takima
-
-- 2 mois de formation
-    - 1 semaine en piscine (JEE stack)
-    - Projet incrémental
-        - Java 11 (LTS), Spring, Spring-MVC, Spring-Security, Hibernate ORM, Spring Data JPA, JDBC Template, JPA, Jackson, Selenium, Junit, Mockito, Docker, Jenkins, Gatling, Angular
-        - 1 semaine DevOPS
-        - 1 jour sur la performance + tunning
-    - Conférences et formations JVM, Spring, Hibernate, Git, React.js, Gatling, Agilité, REST
-    - Certifications Oracle Certified Java Programmer Associate & Professional
-- 4 mois sur un projet interne
-
-## Stage takima
-
-- Séminaires (Samedi, Dimanche, Lundi)
-- Hackathons
-- Meetups interne
-- Billard en interne
-- Nintendo Switch
