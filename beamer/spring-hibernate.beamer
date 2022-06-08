@@ -33,7 +33,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 ## Qu'est-ce que JEE ?
 
-- Version actuelle Jakarta EE 8
+- Version actuelle Jakarta EE 9
 - Ensemble de Java Specification Requests ou JSR
   - JTA (Java Transaction API)
   - JDBC (Java DataBase Connection)
