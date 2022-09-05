@@ -1,7 +1,6 @@
 plugins {
   java
   idea
-  maven
   kotlin("jvm")
   id("com.github.ben-manes.versions")
   id("org.springframework.boot") apply false
@@ -22,7 +21,6 @@ tasks.dependencyUpdates {
 }
 
 allprojects {
-  apply(plugin = "maven")
   apply(plugin = "idea")
 
   group = "io.github.joxit"

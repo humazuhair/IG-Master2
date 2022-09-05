@@ -9,7 +9,7 @@ tasks.bootJar {
 }
 
 dependencies {
-  compile(project(":pizzeria-core"))
+  implementation(project(":pizzeria-core"))
   implementation("org.springframework.boot:spring-boot-configuration-processor")
   implementation("org.springframework.boot:spring-boot-starter-jdbc")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
