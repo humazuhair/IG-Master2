@@ -14,16 +14,27 @@ Vous pouvez utiliser d'autres IDE, mais je ne pourrais pas vous aider... (Non, A
 ### Récuperer le code
 
 Vous pouvez cloner le projet avec git `git clone https://github.com/Joxit/IG-Master2` ou télécherger le [zip](https://github.com/Joxit/IG-Master2/archive/master.zip).
-Ouvre IntelliJ, cliquez sur `File` -> `New` -> `Project From Existing Sources`. Cela ouvre une fenêtre, naviguez jusqu'au projet et **selectionnez le fichier** `osm/build.gradle.kts`.
+Si vous vous vous êtes déjà servis de IntelliJ, cliquez sur `File` -> `New` -> `Project From Existing Sources`.
+![00-project-from-sources](./images/00-project-from-sources.png)
+Sinon, sur la page de `Welcome to IntelliJ IDEA`, cliquez sur `Open` 
+![00-welcome-to-IntelliJ](./images/00-welcome-to-IntelliJ.png)
+
+Dans les deux cas, cela ouvre une fenêtre, naviguez jusqu'au projet et **selectionnez le fichier** `osm/build.gradle.kts` et ouvrez en tant que projet.
 Cela ouvre une fenêtre avec le projet configuré avec Gradle.
 
 Si vous n'avez pas Java de configuré, vous pouvez séléctionner le SDK à utiliser, pour cela cliquez sur `File` -> `Project Structure` -> `Project`. Vous verrez peut-être que vous verrez `<No SDK>`, cliquez dessus et selectionnez une version de Java (s'il y en a), sinon deux choix s'offrent à vous:
 1. Vous avez déjà un SDK sur votre machine alors faites : `Add SDK` -> `JDK`. Cela ouvre une fenêtre, naviguez jusuq'à l'endroit où il y a votre JDK (essayez `/usr/lib/jvm/` pour linux ou dans les dossiers `Program Files/Eclipse Foundation` sous Windows).
 2. Vous n'avez pas de SDK sur votre machine, alors faites : `Download JDK` -> `Eclipse Temurin` -> La dernière version disponible.
 
+![00-download-JDK](./images/00-download-JDK.png)
+
 Vérifiez que le SDK utilisé par le projet est le même que celui qu'utilisera gradle. Pour cela allez dans `File` -> `Settings`. Cela ouvre une nouvelle fenêtre, sur la gauche séléctionnez `Build, Execution, Deployment` -> `Build Tool` -> `Gradle` et séléctionnez une version de JVM identique à celui du projet (verifiez que c'est positionné sur `Project SDK`).
 
+![00-gradle-JDK](./images/00-gradle-JDK.png)
+
 Pour vérifier que tout fonctionne correctement, vous pouvez lancer le projet, sur la partie de gauche (Projet), ouvrez le projet `osm` -> `osm-boot` -> `src` -> `main` -> `java` -> `io.github.joxit.osm`. Faites un clique droit sur Application puis `Run Application.main()`.
+
+![00-run-project](./images/00-run-project.png)
 
 Dès que vous avez dans la console quelque chose ressemblant à cela, c'est que votre serveur est démarré. Un [serveur](https://fr.wikipedia.org/wiki/Serveur_informatique) fournit donc des services à un ou plusieurs clients. Pour ce faire il doit resté démarré sans s'arrêter... 
 :warning: Donc **si vous voyez que ça ne bouge pas c'est totalement normal**... Il fait déjà son travail !
@@ -51,6 +62,8 @@ Dès que vous avez dans la console quelque chose ressemblant à cela, c'est que 
 2020-11-02 07:13:35.754  INFO 8 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-11-02 07:13:35.769  INFO 8 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
 ```
+
+![00-tomcat-running](./images/00-tomcat-running.png)
 
 Vous pourrez contacter le serveur sur le port 8080. Si vous essayez d'aller sur <http://localhost:8080/>, vous allez voir une page avec écrit `Whitelabel Error Page`, c'est que le serveur répond, vous pouvez commencer à coder! Pour le moment si vous voulez voir la carte, cela ne marchera pas car vous n'avez pas encore dit à votre serveur de renvoyer les morceaux de tuile !
 
