@@ -107,7 +107,7 @@ map.on("load", () => {
   // Ajout de layer : map.addLayer("nom-de-layer", {id: "id-layer", type: "type-layer", source: "source-ref", paint: {}, layout: {}})
   map.addSource("prefectures", {
     "type": "geojson",
-    "data": `${getUrlQueryParam()}/prefectures`
+    "data": `${getUrlQueryParam()}/prefectures.geojson`
   })
   // Le style d'affichage pour les préfectures, un rond rouge
   map.addLayer({
