@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  pizzeria:
+  ig-master2:
     driver: bridge
 
 services:
@@ -10,68 +10,119 @@ services:
     ports:
       - 127.0.0.1:3306:3306
     volumes:
-      - ./initdb:/docker-entrypoint-initdb.d/
+      - ./docker/initdb:/docker-entrypoint-initdb.d/
     environment:
       MYSQL_ROOT_PASSWORD: toor
     networks:
-      - pizzeria
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
 
   pizzeria-servlet:
     build: ./pizzeria/pizzeria-servlet
     image: joxit/ig-master2:pizzeria-servlet
-    ports:
-      - 127.0.0.1:8080:8080
     environment:
       JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria?useSSL=false\\&allowPublicKeyRetrieval=true"
+    ports:
+      - 127.0.0.10:10000:8080
     networks:
-      - pizzeria
+      - ig-master2
     depends_on:
       - mysql-db
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+
   pizzeria-vertx:
     build: ./pizzeria/pizzeria-vertx
     image: joxit/ig-master2:pizzeria-vertx
-    ports:
-      - 127.0.0.1:8081:8081
     environment:
       SERVER_PORT: 8081
       JAVA_OPTS: "-DdataSource.jdbcUrl=mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
+    ports:
+      - 127.0.0.10:10001:8081
     networks:
-      - pizzeria
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+
   pizzeria-boot:
     build: ./pizzeria/pizzeria-boot
     image: joxit/ig-master2:pizzeria-boot
-    ports:
-      - 127.0.0.1:8082:8082
     environment:
       SERVER_PORT: 8082
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
+    ports:
+      - 127.0.0.10:10002:8082
     networks:
-      - pizzeria
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+
   pizzeria-webflux:
     build: ./pizzeria/pizzeria-webflux
     image: joxit/ig-master2:pizzeria-webflux
-    ports:
-      - 127.0.0.1:8083:8083
     environment:
       SERVER_PORT: 8083
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql-db:3306/pizzeria?useSSL=false&allowPublicKeyRetrieval=true"
+    ports:
+      - 127.0.0.10:10003:8083
     networks:
-      - pizzeria
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+
   pizzeria-ui:
     image: joxit/ig-master2:pizzeria-ui
-    ports:
-      - 80:80
+    networks:
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
 
   osm-boot:
     build: ./osm/osm-boot
     image: joxit/ig-master2:osm-boot
-    ports:
-      - 127.0.0.1:8080:8080
     environment:
       SERVER_PORT: 8080
+    ports:
+      - 127.0.0.10:10004:8080
+    networks:
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
 
   osm-ui:
     build: ./osm/osm-ui
     image: joxit/ig-master2:osm-ui
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+
+  nginx:
+    container_name: nginx
+    image: nginx:1-alpine
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
-      - 127.0.0.1:81:80
+      - 127.0.0.10:80:80
+    networks:
+      - ig-master2
+    logging:
+      options:
+        max-size: 4m
+        max-file: "10"
+    restart: unless-stopped

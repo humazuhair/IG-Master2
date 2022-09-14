@@ -42,7 +42,6 @@ public class HttpServerVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startFuture) {
-    LOGGER.info("Start Http Server Verticle");
     Router router = Router.router(vertx);
 
     CorsHandler corsHandler = CorsHandler.create("*")
@@ -81,7 +80,6 @@ public class HttpServerVerticle extends AbstractVerticle {
         .requestHandler(router)
         .listen(res -> {
           if (res.succeeded()) {
-            LOGGER.info("Vertex node started");
             startFuture.complete();
           } else {
             LOGGER.info("Vertex node failed to start");

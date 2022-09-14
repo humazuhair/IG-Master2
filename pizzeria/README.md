@@ -25,7 +25,7 @@ Pour executer ce projet vous aurez besoin de:
 
 3. Lancer le backend pizzeria-boot via votre IDE
 
-    1.  Importez le projet (les mêmes étapes que pour OSM)
+    1. Importez le projet (les mêmes étapes que pour OSM)
     2. Ouvrez le projet `pizzeria` -> `pizzeria-boot` -> `src` -> `main` -> `java` -> `io.github.joxit.pizzeria`. Faites un clique droit sur Application puis `Run Application.main()`.
     3. Vous devre voir des log. Le serveur est lancé sur le port 8080, essayez d'aller sur http://127.0.0.1:8080/api
 

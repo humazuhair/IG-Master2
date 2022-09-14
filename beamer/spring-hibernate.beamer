@@ -66,7 +66,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 ## JEE (Démo){.standout}
 
-\centering\Huge\href{https://servlet.joxit.dev/}{Démo}
+\centering\Huge\href{http://servlet.joxit.fr/}{Démo}
 
 [question-JEE-8]: <> (Finalement, qu'est-ce qu'une JSP ?)
 [à montrer-JEE-1]: <> (pizzeria-servlet WebApp: sources Java)
@@ -151,7 +151,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 ## Spring Framework{.standout}
 
-\centering\Huge\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://servlet.joxit.dev/api}{Démo}
+\centering\Huge\href{http://ui.joxit.fr/?url=http://servlet.joxit.fr/api}{Démo}
 
 [à montrer-Spring-1]: <> (pizzeria-servlet webservice: Configuration d'une API)
 [à montrer-Spring-2]: <> (pizzeria-servlet webservice: gestion des erreurs)
@@ -176,7 +176,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 ## Spring Boot{.standout}
 
-\centering\Huge\href{https://joxit.dev/IG-Master2/pizzeria/pizzeria-ui/?url=https://boot.joxit.dev/api}{Démo}
+\centering\Huge\href{http://ui.joxit.fr/?url=http://boot.joxit.fr/api}{Démo}
 
 [question-SpringBoot-3]: <> (Que choisir entre Spring sur Tomcat et Spring Boot ?)
 [question-SpringBoot-4]: <> (Quelles sont les differences entre Spring et Spring Boot ?)
@@ -194,6 +194,7 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 ## Qu'est-ce que ~~Maven~~ Gradle ?
 
+### Gradle
 - Gestionnaire de build et de dépendances évolué
 - Utilisation du multi-module
 - Lancement des tests
@@ -233,7 +234,14 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 [à montrer-Reactive-1]: <> (pizzeria-webflux: Application pour les anotation et webservice)
 [à montrer-Reactive-2]: <> (pizzeria-webflux: Sur des requêtes utilisant la BDD cela ne va rien changer (dangeureux même))
-[à montrer-Reactive-3]: <> (perf: entre spring boot et webflux sur empty)
+[à montrer-Reactive-3]: <> (perf: entre spring boot et webflux sur empty
+Servlet
+wrk -t 4 -c 50 http://127.0.0.10:10000/api?type=empty
+Spring Boot
+wrk -t 4 -c 50 http://127.0.0.10:10002/api?type=empty
+Spring Webflux
+wrk -t 4 -c 50 http://127.0.0.10:10003/api?type=empty
+)
 
 # Et pour après ?
 
@@ -251,7 +259,12 @@ build: pandoc -f markdown -st beamer spring-hibernate.beamer -B aboutme.tex -A t
 
 \centering\Huge Démo
 
-[à montrer-Vert.x-1]: <> (perf: entre vertx et webflux sur empty)
+[à montrer-Vert.x-1]: <> (perf: entre vertx et webflux sur empty et temps de démarrage
+Spring Webflux
+wrk -t 4 -c 50 http://127.0.0.10:10003/api?type=empty
+Spring Vert.x
+wrk -t 4 -c 50 http://127.0.0.10:10001/api?type=empty
+)
 [à montrer-Vert.x-2]: <> (Difference entre Netty et Vert.x)
 
 ## Introduction à Spring et Hibernate{.standout}

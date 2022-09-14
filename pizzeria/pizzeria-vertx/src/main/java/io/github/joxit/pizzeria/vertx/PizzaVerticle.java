@@ -25,7 +25,7 @@ public class PizzaVerticle extends AbstractVerticle {
   private PizzeriaService pizzeriaService;
 
   @Override
-  public void start(Promise<Void> startFuture) {
+  public void start() {
     LOGGER.info("Start Pizza Verticle");
     EventBus eb = vertx.eventBus();
     eb.localConsumer(name, this::handle);

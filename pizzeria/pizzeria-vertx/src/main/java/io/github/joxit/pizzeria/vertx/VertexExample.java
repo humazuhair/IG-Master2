@@ -88,6 +88,7 @@ public class VertexExample {
 
   @PostConstruct
   private void deployVerticle() {
+    long start = System.currentTimeMillis();
     ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.DISABLED);
     vertx.registerVerticleFactory(verticleFactory);
 
@@ -110,7 +111,7 @@ public class VertexExample {
 
     CompositeFuture.all(futures).onComplete(ar -> {
       if (ar.succeeded()) {
-        LOGGER.info("Pizzeria app is started");
+        LOGGER.info("Pizzeria app started in {} ms", System.currentTimeMillis() - start);
       } else {
         LOGGER.error("Error in server initialization", ar.cause());
         System.exit(1);
