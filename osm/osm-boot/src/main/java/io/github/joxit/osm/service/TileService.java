@@ -1,7 +1,9 @@
 package io.github.joxit.osm.service;
 
 import io.github.joxit.osm.model.Tile;
+import io.github.joxit.osm.utils.Svg;
 import mil.nga.sf.geojson.GeoJsonObject;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
@@ -11,6 +13,7 @@ import java.io.IOException;
  * @author Jones Magloire @Joxit
  * @since 2019-11-03
  */
+@Service
 public class TileService {
 
   /**
@@ -20,8 +23,9 @@ public class TileService {
    * @param tile qu'il faut renvoyer
    * @return le byte array au format png
    */
+
   public byte[] getTile(Tile tile) {
-    return null;
+    return Svg.getTile(tile);
   }
 
   /**

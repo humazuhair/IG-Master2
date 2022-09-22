@@ -1,6 +1,11 @@
 package io.github.joxit.osm.controller;
 
+import io.github.joxit.osm.model.Tile;
+import io.github.joxit.osm.service.TileService;
 import mil.nga.sf.geojson.GeoJsonObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -10,6 +15,9 @@ import java.io.IOException;
  * @author Jones Magloire @Joxit
  * @since 2019-11-03
  */
+@CrossOrigin
+@RestController
+@RequestMapping
 public class TileController {
 
   /**
@@ -21,8 +29,13 @@ public class TileController {
    * @param y coordonée
    * @return l'image au format PNG
    */
+  @Autowired
+  private TileService tileService;
+
+  @RequestMapping(value = "/{z}/{x}/{y}.png", produces = "image/png", method = RequestMethod.GET)
   public byte[] getTile(int z, int x, int y) {
-    return null;
+    Tile tile = new Tile(z, x, y);
+    return tileService.getTile(tile);
   }
 
   /**
