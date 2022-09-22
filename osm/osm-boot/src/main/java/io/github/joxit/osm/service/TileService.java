@@ -25,6 +25,13 @@ public class TileService {
    */
 
   public byte[] getTile(Tile tile) {
+    if(tile.getZ()<0 || tile.getX()<0 || tile.getY()<0){
+      throw new IllegalArgumentException("Negative numbers aren't allowed!!! ");
+    }
+    if (tile.getZ()>24){
+      throw new IllegalArgumentException("Zoom's value shouldn't be bigger than 24!!! ");
+    }
+    //if()
     return Svg.getTile(tile);
   }
 

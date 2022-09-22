@@ -4,6 +4,7 @@ import io.github.joxit.osm.model.Tile;
 import io.github.joxit.osm.service.TileService;
 import mil.nga.sf.geojson.GeoJsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +33,8 @@ public class TileController {
   @Autowired
   private TileService tileService;
 
-  @RequestMapping(value = "/{z}/{x}/{y}.png", produces = "image/png", method = RequestMethod.GET)
-  public byte[] getTile(int z, int x, int y) {
+  @GetMapping(value = "/{z}/{x}/{y}.png", produces = "image/png")
+  public byte[] getTile(@PathVariable("z") int z,@PathVariable("x") int x,@PathVariable("y") int y) {
     Tile tile = new Tile(z, x, y);
     return tileService.getTile(tile);
   }
@@ -45,7 +46,7 @@ public class TileController {
    * @return String representant le GeoJSON des prefectures
    */
   public String getPrefectures() throws IOException {
-    return null;
+    return tileService.getPrefectures();
   }
 
   /**
@@ -55,6 +56,7 @@ public class TileController {
    * @return le geojson des POIs à renvoyer
    */
   public GeoJsonObject getPOIs() {
-    return null;
+    return tileService.getPOIs();
   }
+
 }
